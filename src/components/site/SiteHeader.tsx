@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logo from "@/assets/livan-logo.png.asset.json";
+import { ProductSearch } from "@/components/site/ProductSearch";
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,19 +39,23 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <ProductSearch />
           <Link to="/quote" className="btn-primary">
             Request a Quote
           </Link>
         </div>
 
-        <button
-          className="p-2 text-primary md:hidden"
+        <div className="flex items-center gap-1 md:hidden">
+          <ProductSearch className="p-2 text-primary" />
+          <button
+          className="p-2 text-primary"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle navigation"
         >
           <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
-        </button>
+          </button>
+        </div>
       </div>
 
       {open && (

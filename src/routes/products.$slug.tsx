@@ -24,6 +24,52 @@ export const Route = createFileRoute("/products/$slug")({
         { property: "og:description", content: product.description.slice(0, 155) },
         { property: "og:image", content: product.image },
         { name: "twitter:image", content: product.image },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: `/products/${product.slug}` },
+      ],
+      links: [{ rel: "canonical", href: `/products/${product.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            sku: product.sku,
+            image: product.image,
+            description: product.description,
+            brand: { "@type": "Brand", name: product.brand },
+            category: product.category,
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "UGX",
+              availability:
+                product.availability === "In Stock"
+                  ? "https://schema.org/InStock"
+                  : product.availability === "Low Stock"
+                    ? "https://schema.org/LimitedAvailability"
+                    : "https://schema.org/PreOrder",
+              seller: { "@type": "Organization", name: "Livan Lab Supplies Uganda Limited" },
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+              { "@type": "ListItem", position: 2, name: "Products", item: "/products" },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: product.name,
+                item: `/products/${product.slug}`,
+              },
+            ],
+          }),
+        },
       ],
     };
   },
@@ -69,10 +115,36 @@ function ProductDetail() {
                 )}
                 <h1 className="mb-2 text-3xl font-bold text-primary md:text-4xl">{product.name}</h1>
                 <p className="text-sm text-muted-foreground">
-                  SKU: {product.sku} · {product.category}
+                  SKU: {product.sku} · {product.brand} · {product.category}
                 </p>
               </div>
               <p className="text-muted-foreground">{product.description}</p>
+              <dl className="grid grid-cols-1 gap-4 rounded-xl border border-border bg-surface-low p-5 sm:grid-cols-2">
+                {[
+                  { label: "Indicative price", value: product.priceRange },
+                  { label: "Availability", value: product.availability },
+                  { label: "Lead time", value: product.leadTime },
+                  { label: "Warranty", value: product.warranty },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <dt className="eyebrow mb-1">{row.label}</dt>
+                    <dd className="text-sm font-semibold text-primary">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div>
+                <p className="eyebrow mb-2">Typical applications</p>
+                <div className="flex flex-wrap gap-2">
+                  {product.applications.map((a) => (
+                    <span
+                      key={a}
+                      className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground"
+                    >
+                      {a}
+                    </span>
+                  ))}
+                </div>
+              </div>
               <div className="flex flex-wrap gap-4">
                 <Link to="/quote" search={{ product: product.slug }} className="btn-primary">
                   <span className="material-symbols-outlined filled text-base">request_quote</span>

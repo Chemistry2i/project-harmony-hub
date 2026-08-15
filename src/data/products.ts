@@ -4,7 +4,13 @@ export type Product = {
   category: string;
   group: "Laboratory Equipment" | "Diagnostic Equipment" | "Apparatus & Consumables";
   sku: string;
+  brand: string;
   badge?: string;
+  priceRange: string;
+  availability: "In Stock" | "Low Stock" | "Indent Order";
+  leadTime: string;
+  warranty: string;
+  applications: string[];
   short: string;
   description: string;
   image: string;
@@ -19,6 +25,12 @@ export const products: Product[] = [
     category: "Microscopy",
     group: "Laboratory Equipment",
     sku: "LEI-DM500-001",
+    brand: "Leica Microsystems",
+    priceRange: "UGX 12,500,000 – 15,800,000",
+    availability: "In Stock",
+    leadTime: "3 – 5 working days",
+    warranty: "2 years parts & labour",
+    applications: ["Teaching laboratories", "Clinical microscopy", "Parasitology screening"],
     badge: "Certified",
     short: "Standard student and clinical microscope for life sciences.",
     description:
@@ -44,6 +56,12 @@ export const products: Product[] = [
     category: "Centrifugation",
     group: "Laboratory Equipment",
     sku: "EPP-5424-001",
+    brand: "Eppendorf",
+    priceRange: "UGX 9,200,000 – 11,400,000",
+    availability: "In Stock",
+    leadTime: "5 working days",
+    warranty: "2 years",
+    applications: ["Molecular biology", "DNA/RNA extraction", "Microtube spins"],
     short: "High-speed microcentrifuge for molecular biology applications.",
     description:
       "Standard 24-place microcentrifuge offering high-speed performance up to 21,130 × g for molecular biology applications, with quiet operation and a compact bench footprint.",
@@ -68,6 +86,12 @@ export const products: Product[] = [
     category: "Weighing",
     group: "Laboratory Equipment",
     sku: "MTL-AB-204",
+    brand: "Mettler Toledo",
+    priceRange: "UGX 18,600,000 – 22,000,000",
+    availability: "Low Stock",
+    leadTime: "2 – 3 weeks",
+    warranty: "2 years + free first calibration",
+    applications: ["Quality control", "Formulation", "Reference weighing"],
     badge: "Precision",
     short: "Professional grade weighing for chemical analysis.",
     description:
@@ -93,6 +117,12 @@ export const products: Product[] = [
     category: "Hematology",
     group: "Diagnostic Equipment",
     sku: "SYS-XP300-001",
+    brand: "Sysmex",
+    priceRange: "UGX 46,000,000 – 54,000,000",
+    availability: "Low Stock",
+    leadTime: "2 weeks",
+    warranty: "1 year on-site",
+    applications: ["Routine CBC", "Outpatient laboratories", "Blood bank screening"],
     badge: "Urgent Stock",
     short: "Compact, automated 3-part differential analyzer for clinical testing.",
     description:
@@ -118,6 +148,12 @@ export const products: Product[] = [
     category: "Clinical Chemistry",
     group: "Diagnostic Equipment",
     sku: "RCH-C111-001",
+    brand: "Roche Diagnostics",
+    priceRange: "UGX 78,000,000 – 96,000,000",
+    availability: "In Stock",
+    leadTime: "3 weeks",
+    warranty: "1 year on-site + service contract",
+    applications: ["Liver & renal panels", "Lipid profiles", "Electrolytes"],
     badge: "In Stock",
     short: "Reliable clinical chemistry solution for small-to-mid volume labs.",
     description:
@@ -150,6 +186,12 @@ export const products: Product[] = [
     category: "Hematology",
     group: "Diagnostic Equipment",
     sku: "MDR-BC3000-001",
+    brand: "Mindray",
+    priceRange: "UGX 32,000,000 – 38,500,000",
+    availability: "In Stock",
+    leadTime: "10 working days",
+    warranty: "1 year on-site",
+    applications: ["Routine hematology", "District hospital labs", "Health centre IV"],
     short: "Auto Hematology Analyzer with 3-part differentiation of WBC.",
     description:
       "Auto hematology analyzer with 3-part differentiation of WBC, delivering 19 parameters and three histograms for routine clinical screening in mid-volume laboratories.",
@@ -174,6 +216,12 @@ export const products: Product[] = [
     category: "Rapid Diagnostics",
     group: "Diagnostic Equipment",
     sku: "ABT-PANBIO-025",
+    brand: "Abbott",
+    priceRange: "UGX 620,000 per kit of 25",
+    availability: "In Stock",
+    leadTime: "Same week",
+    warranty: "Shelf life 24 months",
+    applications: ["Point-of-care triage", "Outbreak response", "Occupational screening"],
     short: "Rapid antigen diagnostic kits for professional healthcare screening.",
     description:
       "High-performance rapid antigen diagnostic kits for professional healthcare screening, delivering results at the point of care within 15 minutes.",
@@ -198,6 +246,12 @@ export const products: Product[] = [
     category: "Glassware",
     group: "Apparatus & Consumables",
     sku: "PYX-ERL-SET",
+    brand: "Pyrex",
+    priceRange: "UGX 480,000 per set",
+    availability: "In Stock",
+    leadTime: "2 – 4 working days",
+    warranty: "Replacement on manufacturing defect",
+    applications: ["Titration", "Media preparation", "Teaching practicals"],
     badge: "Available",
     short: "Borosilicate glass, heavy duty.",
     description:
@@ -223,6 +277,12 @@ export const products: Product[] = [
     category: "Liquid Handling",
     group: "Apparatus & Consumables",
     sku: "THM-PIP-KIT",
+    brand: "Thermo Scientific",
+    priceRange: "UGX 3,150,000 per kit",
+    availability: "In Stock",
+    leadTime: "1 week",
+    warranty: "1 year + annual calibration",
+    applications: ["PCR setup", "ELISA", "Reagent dispensing"],
     short: "Variable volume micropipettes.",
     description:
       "Variable-volume micropipette kit covering routine pipetting ranges, with lightweight ergonomics and autoclavable lower assemblies for contamination control.",
@@ -241,6 +301,281 @@ export const products: Product[] = [
       "Includes stand and starter tip racks.",
     ],
   },
+  {
+    slug: "cepheid-genexpert-iv",
+    name: "Cepheid GeneXpert IV System",
+    category: "Molecular Diagnostics",
+    group: "Diagnostic Equipment",
+    sku: "CEP-GX4-001",
+    brand: "Cepheid",
+    priceRange: "UGX 145,000,000 - 168,000,000",
+    availability: "Indent Order",
+    leadTime: "4 - 6 weeks",
+    warranty: "1 year on-site with preventive maintenance",
+    applications: ["TB diagnosis", "HIV viral load", "HPV screening"],
+    badge: "Programme Ready",
+    short: "Four-module cartridge-based PCR platform for TB, HIV and HPV testing.",
+    description:
+      "Cartridge-based real-time PCR system delivering laboratory-quality molecular results in under two hours with minimal hands-on time. Widely deployed across Uganda for TB and HIV viral-load testing programmes.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYKCsaVGPg7Hfh2qIpnRCmOQgjfPTAMFj2V3OPEauzf9uBfCgqZpaLscThaNvRkHDdZqZz505XIMghVBq3Msg46yy7T1X8lHD3wkCUeXuUfXUlU_U3PGu15bNJZruxHfcYriYBVZo6vTng58GzScNJuqhV_yee0sPAk1WlmGgxmwpN69VZ2cN56cBco1agUptMPlerorae_iFBlOfxFiMlWfwJbhnssST8YEEolp1RLOolN8XczSD4",
+    specs: [
+      { label: "Modules", value: "4 independent modules" },
+      { label: "Time to Result", value: "Under 2 hours" },
+      { label: "Hands-on Time", value: "Under 2 minutes" },
+      { label: "Sample Types", value: "Sputum, plasma, whole blood, swabs" },
+      { label: "Power", value: "220-240V AC, UPS recommended" },
+    ],
+    features: [
+      "Random-access testing - run different assays simultaneously.",
+      "Closed cartridge design minimises contamination risk.",
+      "Onboard connectivity for national reporting platforms.",
+      "Supported by Livan engineers with in-country spare modules.",
+    ],
+  },
+  {
+    slug: "mindray-cl-900i-immunoassay",
+    name: "Mindray CL-900i Immunoassay Analyzer",
+    category: "Immunoassay",
+    group: "Diagnostic Equipment",
+    sku: "MDR-CL900I-001",
+    brand: "Mindray",
+    priceRange: "UGX 118,000,000 - 132,000,000",
+    availability: "Indent Order",
+    leadTime: "4 weeks",
+    warranty: "1 year on-site",
+    applications: ["Thyroid panels", "Fertility hormones", "Cardiac markers"],
+    short: "Compact chemiluminescence analyzer for hormone and infectious disease panels.",
+    description:
+      "Fully automated chemiluminescence immunoassay analyzer with 180 tests per hour throughput, continuous loading and onboard reagent refrigeration - designed for mid-volume hospital laboratories.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYKCsaVGPg7Hfh2qIpnRCmOQgjfPTAMFj2V3OPEauzf9uBfCgqZpaLscThaNvRkHDdZqZz505XIMghVBq3Msg46yy7T1X8lHD3wkCUeXuUfXUlU_U3PGu15bNJZruxHfcYriYBVZo6vTng58GzScNJuqhV_yee0sPAk1WlmGgxmwpN69VZ2cN56cBco1agUptMPlerorae_iFBlOfxFiMlWfwJbhnssST8YEEolp1RLOolN8XczSD4",
+    specs: [
+      { label: "Throughput", value: "180 tests/hour" },
+      { label: "Reagent Positions", value: "15 refrigerated positions" },
+      { label: "Sample Positions", value: "40 positions, continuous loading" },
+      { label: "First Result", value: "17 minutes" },
+      { label: "Interface", value: "10.4-inch colour touch screen" },
+    ],
+    features: [
+      "Onboard reagent refrigeration keeps kits stable in warm climates.",
+      "STAT sample priority for emergency requests.",
+      "Automatic dilution and re-run of out-of-range samples.",
+      "Bi-directional LIS connectivity.",
+    ],
+  },
+  {
+    slug: "sysmex-uc-3500-urine-analyzer",
+    name: "Sysmex UC-3500 Urine Chemistry Analyzer",
+    category: "Urinalysis",
+    group: "Diagnostic Equipment",
+    sku: "SYS-UC3500-001",
+    brand: "Sysmex",
+    priceRange: "UGX 41,000,000 - 47,500,000",
+    availability: "Low Stock",
+    leadTime: "3 weeks",
+    warranty: "1 year on-site",
+    applications: ["Routine urinalysis", "Antenatal clinics", "Renal monitoring"],
+    short: "Fully automated urine chemistry strip analyzer for high-throughput clinics.",
+    description:
+      "Automated urine chemistry analyzer processing up to 276 samples per hour with double-wavelength reflectance measurement and automatic strip feeding for busy outpatient laboratories.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCTp8JpW-CiOlNvVMoWx1jlmgO-wQJBKhy-N1CUuDZ0b-YVctpqnOuSxp0su-lvhUOba6sgUk6vVJGorNluXH4TqZYqSJhXkMjSjc_IEUStY0R0wHYBgNJRk63J6FnDPQO72H1eLIz8LpmEuItqOaziwvyXwJ4exqlvbtvqckh3hrO56xUXhjrq8C9qJGYKyFleOpEw03WX-7GRlRNC2beeVqOLkWuus3sH6TNuHWPHs8NiKG56txlT",
+    specs: [
+      { label: "Throughput", value: "Up to 276 samples/hour" },
+      { label: "Parameters", value: "11 chemistry parameters + colour/turbidity" },
+      { label: "Sample Volume", value: "2 mL urine" },
+      { label: "Strip Feeding", value: "Fully automatic" },
+    ],
+    features: [
+      "Eliminates manual strip dipping and visual reading errors.",
+      "Colour and turbidity measured automatically.",
+      "Barcode-driven positive sample identification.",
+      "Pairs with hematology systems on one LIS.",
+    ],
+  },
+  {
+    slug: "thermo-heratherm-incubator",
+    name: "Thermo Scientific Heratherm IGS100 Incubator",
+    category: "Incubation",
+    group: "Laboratory Equipment",
+    sku: "THM-IGS100-001",
+    brand: "Thermo Scientific",
+    priceRange: "UGX 14,200,000 - 16,900,000",
+    availability: "In Stock",
+    leadTime: "1 - 2 weeks",
+    warranty: "2 years",
+    applications: ["Microbiology culture", "Sterility testing", "Sample conditioning"],
+    short: "General purpose microbiological incubator with stable temperature uniformity.",
+    description:
+      "General-purpose incubator with 100-litre chamber, gravity convection and precise temperature uniformity for microbiological culture and routine sample conditioning.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDH748zn1FhK8-yGZ4cpMsUpQnTyl028z5-gMk3BxEQs_iXE-33UtP5ZwWZweAaD1Vf6e3PDRr2a40xEXySedUKeij8sPodE6uwL6FkOmAjjJQXrJ7dJfKMUP4Ga9PNgGsEvG_7r8nRBhELW2Jpd0fuEF47IGaiwYeoRZxbNbiaCagSpRkkQtChrB5cIGqWClEwc_dqepg59aqsYh5pc4qIoJGnzIL284tTV6mxr0S4ABkorjN0k9cl",
+    specs: [
+      { label: "Chamber Volume", value: "100 L" },
+      { label: "Temperature Range", value: "Ambient +5C to 75C" },
+      { label: "Uniformity", value: "0.5C at 37C" },
+      { label: "Shelves", value: "2 stainless steel, expandable to 4" },
+    ],
+    features: [
+      "Stainless steel chamber with rounded corners for easy cleaning.",
+      "Audible and visual over-temperature alarm.",
+      "Stackable footprint saves bench space.",
+      "Low power draw suited to generator-backed sites.",
+    ],
+  },
+  {
+    slug: "biobase-class-ii-biosafety-cabinet",
+    name: "Biobase Class II A2 Biosafety Cabinet",
+    category: "Biosafety",
+    group: "Laboratory Equipment",
+    sku: "BBS-11A2-X",
+    brand: "Biobase",
+    priceRange: "UGX 26,500,000 - 31,000,000",
+    availability: "In Stock",
+    leadTime: "2 weeks",
+    warranty: "2 years + annual certification",
+    applications: ["TB culture", "Infectious sample handling", "Sterile media preparation"],
+    badge: "Certified",
+    short: "Class II Type A2 cabinet protecting operator, sample and environment.",
+    description:
+      "Class II Type A2 biological safety cabinet with 70% air recirculation and 30% exhaust, HEPA-filtered downflow, and airflow monitoring - essential for handling infectious clinical samples.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCx5SCgaDm87SM43JRYtoxyvLEoYMuzGh0Em7RuAD-DVtWQKiCeuLH5bwEf82hj8LpVITFfX43kWnmA_rXjOdQueVAV7GAWs-SfoKwipPQIuOMVR3hY8FDyLVPCgrdJhRXhp8vuLW2HlH3gK9Lg_J5a2_n2GNxRafh5P2aa1LcxKeXmUQJEe9-sRkw5cMJKOwSkCed2Rjcrtd1xv8uw-XIwb3valaUmpInN5ygbst8cFE9R0DgvQEjP",
+    specs: [
+      { label: "Class", value: "II Type A2" },
+      { label: "Work Area Width", value: "1,200 mm" },
+      { label: "Filtration", value: "HEPA H14, 99.999% at 0.3 micron" },
+      { label: "Airflow Alarm", value: "Audible and visual" },
+      { label: "Certification", value: "Delivered with on-site validation" },
+    ],
+    features: [
+      "Motorised sash with safe-height interlock alarm.",
+      "UV decontamination cycle with timer.",
+      "Delivered with on-site airflow certification by Livan engineers.",
+      "Annual re-certification available under service contract.",
+    ],
+  },
+  {
+    slug: "hettich-eba-200-centrifuge",
+    name: "Hettich EBA 200 Clinical Centrifuge",
+    category: "Centrifugation",
+    group: "Laboratory Equipment",
+    sku: "HET-EBA200-001",
+    brand: "Hettich",
+    priceRange: "UGX 7,800,000 - 9,100,000",
+    availability: "In Stock",
+    leadTime: "1 week",
+    warranty: "2 years",
+    applications: ["Serum separation", "Urine sediment", "Blood bank"],
+    short: "Compact clinical centrifuge for serum separation and routine spins.",
+    description:
+      "Compact 8-place clinical centrifuge for serum and plasma separation, with quiet operation, short cycle times and a maintenance-free brushless drive.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDH748zn1FhK8-yGZ4cpMsUpQnTyl028z5-gMk3BxEQs_iXE-33UtP5ZwWZweAaD1Vf6e3PDRr2a40xEXySedUKeij8sPodE6uwL6FkOmAjjJQXrJ7dJfKMUP4Ga9PNgGsEvG_7r8nRBhELW2Jpd0fuEF47IGaiwYeoRZxbNbiaCagSpRkkQtChrB5cIGqWClEwc_dqepg59aqsYh5pc4qIoJGnzIL284tTV6mxr0S4ABkorjN0k9cl",
+    specs: [
+      { label: "Capacity", value: "8 x 15 mL tubes" },
+      { label: "Max Speed", value: "6,000 rpm" },
+      { label: "Max RCF", value: "3,461 x g" },
+      { label: "Timer", value: "1 - 99 minutes plus short spin" },
+    ],
+    features: [
+      "Maintenance-free induction drive.",
+      "Lid interlock and imbalance cut-out.",
+      "Small footprint for sample reception benches.",
+      "Ideal for health centre and clinic laboratories.",
+    ],
+  },
+  {
+    slug: "olympus-cx23-microscope",
+    name: "Olympus CX23 Binocular Microscope",
+    category: "Microscopy",
+    group: "Laboratory Equipment",
+    sku: "OLY-CX23-001",
+    brand: "Olympus",
+    priceRange: "UGX 8,900,000 - 10,600,000",
+    availability: "In Stock",
+    leadTime: "5 working days",
+    warranty: "2 years",
+    applications: ["Malaria diagnosis", "Student practicals", "Routine clinical microscopy"],
+    short: "Lightweight teaching and clinical microscope with bright LED optics.",
+    description:
+      "Lightweight binocular microscope with high-contrast LED illumination and Olympus achromat objectives, designed for clinical malaria diagnosis and high-volume teaching use.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCm_Uf3hqcbbNEzNxYo4hxyO7mqd-fJ5CIZ7ylG_tJi_VFaEUTiGgvrgyKh_Q31WkUBhIs0mDbQR6zplPShbPSaLaV4PwSETiTMGQ-Z2J_qaqV3x8JvdVhxDLTL0IYxnqZM1dlB7lQ389Wz40-REG9qrqB8kmJZ-eka_guz_0s_9k04r5nBYUG84yNAKi9TOy7NDXk_fq1n9MedibiYoEPVGxzM_h1o808zYYfiCyyI3vetPMCToI4u",
+    specs: [
+      { label: "Objectives", value: "4x, 10x, 40x, 100x oil" },
+      { label: "Illumination", value: "LED with brightness memory" },
+      { label: "Head", value: "Binocular, 30 degree inclined, 360 rotatable" },
+      { label: "Weight", value: "6.8 kg" },
+    ],
+    features: [
+      "Bright LED gives consistent contrast for thick blood films.",
+      "Carrying handle and low weight for outreach clinics.",
+      "Anti-fungal coated optics for humid environments.",
+      "Low running cost - no bulb replacement.",
+    ],
+  },
+  {
+    slug: "bd-vacutainer-blood-collection-tubes",
+    name: "BD Vacutainer Blood Collection Tubes",
+    category: "Consumables",
+    group: "Apparatus & Consumables",
+    sku: "BD-VAC-EDTA-100",
+    brand: "BD",
+    priceRange: "UGX 190,000 per pack of 100",
+    availability: "In Stock",
+    leadTime: "2 - 3 working days",
+    warranty: "Shelf life 12 - 18 months",
+    applications: ["Phlebotomy", "Hematology", "Chemistry sample collection"],
+    short: "EDTA, serum and citrate vacuum tubes for reliable phlebotomy.",
+    description:
+      "Sterile evacuated blood collection tubes with colour-coded caps and consistent draw volumes across EDTA, serum, citrate and fluoride formats for accurate pre-analytical handling.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAeepDyquFcTo5TN9wpiQoP7rlsw7T1wSmkXaZ2LV825JS-L0zqauTG8_2tMfAcWqFR1HtjlbI43s3TC6iZK2sigYMTt9C-YVpn1n53r0_Q5rDF8idloQkOocGIb-A0nD5fsHc__XnD4kx-SBPIgH0yzEt5M3AHo8wPU1hc5GT2qzcaFKs_QKi9E4lRt8BN0koYPAUn-Dt625KqvUIiQPb2W2Q-Stf4bTNHC_jIgDUchqQKiF6eYjb6",
+    specs: [
+      { label: "Formats", value: "K2EDTA, Serum (clot activator), Citrate, Fluoride" },
+      { label: "Draw Volumes", value: "2 mL, 4 mL, 6 mL" },
+      { label: "Pack Size", value: "100 tubes per pack" },
+      { label: "Storage", value: "4 - 25C" },
+    ],
+    features: [
+      "Consistent vacuum draw reduces short-fill rejections.",
+      "Colour-coded caps aligned with international standards.",
+      "Compatible with standard needle holders.",
+      "Bulk institutional pricing available.",
+    ],
+  },
+  {
+    slug: "nitrile-examination-gloves",
+    name: "Nitrile Examination Gloves (Powder-Free)",
+    category: "Consumables",
+    group: "Apparatus & Consumables",
+    sku: "LIV-GLV-NTR-100",
+    brand: "Medline",
+    priceRange: "UGX 78,000 per box of 100",
+    availability: "In Stock",
+    leadTime: "Next-day delivery in Kampala",
+    warranty: "Shelf life 36 months",
+    applications: ["Sample handling", "Phlebotomy", "General laboratory use"],
+    short: "Powder-free nitrile gloves with strong chemical splash resistance.",
+    description:
+      "Powder-free, latex-free nitrile examination gloves offering excellent puncture and chemical splash resistance, textured fingertips and a comfortable fit for extended laboratory sessions.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDn6Zki3KDp5U8T4szZR4fj_3cxWp5qWZUDu3zsTMQ7cE7KGdDG9MfRB2Mjjh_TITFtJkzDOscUuM0QhmYi_mXFfLvQdc00JZ1u4wqGm0HRJMKgBlNLNi1MCJBZa83j_9OkNqNI0xbaquYiJc6aJuGKkv21Ba9RJCIcII_N_iWGw2SvT8HDbeQ8PhSrOH_9NiaA1vtu90i0gqVUGYJsh-YXy7aGNrfX-8kPLYYrVKGxZ56x3sxEcEEr",
+    specs: [
+      { label: "Material", value: "Nitrile, powder-free, latex-free" },
+      { label: "Sizes", value: "S, M, L, XL" },
+      { label: "Pack Size", value: "100 gloves per box" },
+      { label: "Standard", value: "EN 455 / ASTM D6319" },
+    ],
+    features: [
+      "Textured fingertips for secure sample handling.",
+      "Latex-free - suitable for sensitive users.",
+      "Ambidextrous fit reduces stock complexity.",
+      "Volume contracts available for institutions.",
+    ],
+  },
 ];
 
 export const productGroups = [
@@ -255,10 +590,29 @@ export const categories = [
   "Centrifugation",
   "Hematology",
   "Clinical Chemistry",
+  "Immunoassay",
+  "Molecular Diagnostics",
+  "Urinalysis",
   "Weighing",
+  "Incubation",
+  "Biosafety",
   "Glassware",
   "Liquid Handling",
   "Rapid Diagnostics",
+  "Consumables",
 ];
+
+export const brands = Array.from(new Set(products.map((p) => p.brand))).sort();
+
+export const searchProducts = (query: string) => {
+  const q = query.trim().toLowerCase();
+  if (!q) return [] as Product[];
+  return products.filter((p) =>
+    [p.name, p.brand, p.category, p.group, p.sku, p.short, ...p.applications]
+      .join(" ")
+      .toLowerCase()
+      .includes(q),
+  );
+};
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);

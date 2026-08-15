@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/quote/submitted")({
+  validateSearch: (search: Record<string, unknown>): { ref?: string | undefined } => ({
+    ref: typeof search["ref"] === "string" ? search["ref"] : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Quote Request Submitted | Livan Lab Supplies Uganda" },
@@ -27,6 +30,7 @@ const steps = [
 ];
 
 function Submitted() {
+  const { ref } = Route.useSearch();
   return (
     <main className="flex min-h-screen items-center justify-center bg-surface-low p-6 md:p-12">
       <div className="w-full max-w-3xl card-surface p-8 shadow-[0_8px_24px_rgba(11,31,51,0.06)] md:p-12">
@@ -43,7 +47,7 @@ function Submitted() {
         <div className="mb-8 flex flex-col items-center justify-between gap-4 rounded-lg border border-border bg-surface-low p-6 md:flex-row">
           <div>
             <p className="eyebrow mb-1">Reference Number</p>
-            <p className="text-xl font-bold text-secondary">Livan-Q-82941</p>
+            <p className="text-xl font-bold text-secondary">{ref ?? "Pending assignment"}</p>
           </div>
           <div>
             <p className="eyebrow mb-1">Status</p>

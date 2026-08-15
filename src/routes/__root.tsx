@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { RouteProgress } from "@/components/site/RouteProgress";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,21 +79,56 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Livan Lab Supplies Uganda Limited | Laboratory & Diagnostic Equipment" },
+      {
+        name: "description",
+        content:
+          "Supplier of laboratory equipment, diagnostic analyzers, apparatus and consumables to hospitals, research institutes and universities across Uganda and East Africa.",
+      },
+      { name: "author", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "theme-color", content: "#0f2545" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Livan Lab Supplies Uganda Limited",
+          description:
+            "Supplier of laboratory equipment, diagnostic analyzers and scientific apparatus in Uganda.",
+          areaServed: "Uganda",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kampala",
+            addressCountry: "UG",
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+256-700-000-000",
+            contactType: "sales",
+            email: "info@livanlabsupplies.co.ug",
+          },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -119,8 +156,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RouteProgress />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );
 }
+
