@@ -2,7 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
+import { motion } from "framer-motion";
 import { products } from "@/data/products";
+import { Reveal } from "@/components/site/Reveal";
 
 const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCtuq825gqTEGjMnxtePYBBDloBfw5V4aj17x_dwWJ1-2QUlTpcMmBUjF4lcK4Bv8fhypbF1aPADct0JkcO39mBW5vFtVUCtG36954CMxGfqR4xKt5jk7dNeZ8o9fIUr-Z-gTqm862ExKaOIWYzs5330EOTUbnONhYFxPf-zC8jhQrO-uypie9gUf504Kenz1LcGJGJ3TNnq2Zm7p7krcNhOakTRKny-qkF_yhg1C3l6vMTo7q8BaHn";
@@ -77,7 +79,12 @@ function Index() {
           />
           <div className="container-page relative z-10 w-full">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="flex flex-col items-start gap-5 py-16 lg:col-span-6 lg:pr-10">
+              <motion.div
+                className="flex flex-col items-start gap-5 py-16 lg:col-span-6 lg:pr-10"
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-high px-3 py-1.5">
                   <span className="h-2 w-2 rounded-full bg-teal" />
                   <span className="eyebrow">Uganda&apos;s Premier Supplier</span>
@@ -121,8 +128,13 @@ function Index() {
                     Trusted by leading institutions
                   </div>
                 </div>
-              </div>
-              <div className="relative mt-8 h-[52vh] w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[78vh]">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[78vh]"
+              >
                 <img
                   src={HERO_IMAGE}
                   alt="Modern clinical laboratory with diagnostic equipment and a microscope on a stainless steel bench"
