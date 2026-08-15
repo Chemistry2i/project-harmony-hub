@@ -153,11 +153,11 @@ function Index() {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="bg-surface py-20">
-          <div className="container-page">
+          <Reveal className="container-page">
             <div className="mb-12 flex flex-col items-center text-center">
               <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Featured Products</h2>
               <p className="max-w-2xl text-muted-foreground">
@@ -176,7 +176,7 @@ function Index() {
                 <span className="material-symbols-outlined text-base">arrow_forward</span>
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="border-y border-border bg-surface-low py-20">
@@ -214,7 +214,7 @@ function Index() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
       <SiteFooter />
