@@ -4,7 +4,13 @@ export type Product = {
   category: string;
   group: "Laboratory Equipment" | "Diagnostic Equipment" | "Apparatus & Consumables";
   sku: string;
+  brand: string;
   badge?: string;
+  priceRange: string;
+  availability: "In Stock" | "Low Stock" | "Indent Order";
+  leadTime: string;
+  warranty: string;
+  applications: string[];
   short: string;
   description: string;
   image: string;
@@ -19,6 +25,12 @@ export const products: Product[] = [
     category: "Microscopy",
     group: "Laboratory Equipment",
     sku: "LEI-DM500-001",
+    brand: "Leica Microsystems",
+    priceRange: "UGX 12,500,000 – 15,800,000",
+    availability: "In Stock",
+    leadTime: "3 – 5 working days",
+    warranty: "2 years parts & labour",
+    applications: ["Teaching laboratories", "Clinical microscopy", "Parasitology screening"],
     badge: "Certified",
     short: "Standard student and clinical microscope for life sciences.",
     description:
@@ -44,6 +56,12 @@ export const products: Product[] = [
     category: "Centrifugation",
     group: "Laboratory Equipment",
     sku: "EPP-5424-001",
+    brand: "Eppendorf",
+    priceRange: "UGX 9,200,000 – 11,400,000",
+    availability: "In Stock",
+    leadTime: "5 working days",
+    warranty: "2 years",
+    applications: ["Molecular biology", "DNA/RNA extraction", "Microtube spins"],
     short: "High-speed microcentrifuge for molecular biology applications.",
     description:
       "Standard 24-place microcentrifuge offering high-speed performance up to 21,130 × g for molecular biology applications, with quiet operation and a compact bench footprint.",
@@ -68,6 +86,12 @@ export const products: Product[] = [
     category: "Weighing",
     group: "Laboratory Equipment",
     sku: "MTL-AB-204",
+    brand: "Mettler Toledo",
+    priceRange: "UGX 18,600,000 – 22,000,000",
+    availability: "Low Stock",
+    leadTime: "2 – 3 weeks",
+    warranty: "2 years + free first calibration",
+    applications: ["Quality control", "Formulation", "Reference weighing"],
     badge: "Precision",
     short: "Professional grade weighing for chemical analysis.",
     description:
@@ -93,6 +117,12 @@ export const products: Product[] = [
     category: "Hematology",
     group: "Diagnostic Equipment",
     sku: "SYS-XP300-001",
+    brand: "Sysmex",
+    priceRange: "UGX 46,000,000 – 54,000,000",
+    availability: "Low Stock",
+    leadTime: "2 weeks",
+    warranty: "1 year on-site",
+    applications: ["Routine CBC", "Outpatient laboratories", "Blood bank screening"],
     badge: "Urgent Stock",
     short: "Compact, automated 3-part differential analyzer for clinical testing.",
     description:
@@ -118,6 +148,12 @@ export const products: Product[] = [
     category: "Clinical Chemistry",
     group: "Diagnostic Equipment",
     sku: "RCH-C111-001",
+    brand: "Roche Diagnostics",
+    priceRange: "UGX 78,000,000 – 96,000,000",
+    availability: "In Stock",
+    leadTime: "3 weeks",
+    warranty: "1 year on-site + service contract",
+    applications: ["Liver & renal panels", "Lipid profiles", "Electrolytes"],
     badge: "In Stock",
     short: "Reliable clinical chemistry solution for small-to-mid volume labs.",
     description:
@@ -150,6 +186,12 @@ export const products: Product[] = [
     category: "Hematology",
     group: "Diagnostic Equipment",
     sku: "MDR-BC3000-001",
+    brand: "Mindray",
+    priceRange: "UGX 32,000,000 – 38,500,000",
+    availability: "In Stock",
+    leadTime: "10 working days",
+    warranty: "1 year on-site",
+    applications: ["Routine hematology", "District hospital labs", "Health centre IV"],
     short: "Auto Hematology Analyzer with 3-part differentiation of WBC.",
     description:
       "Auto hematology analyzer with 3-part differentiation of WBC, delivering 19 parameters and three histograms for routine clinical screening in mid-volume laboratories.",
@@ -174,6 +216,12 @@ export const products: Product[] = [
     category: "Rapid Diagnostics",
     group: "Diagnostic Equipment",
     sku: "ABT-PANBIO-025",
+    brand: "Abbott",
+    priceRange: "UGX 620,000 per kit of 25",
+    availability: "In Stock",
+    leadTime: "Same week",
+    warranty: "Shelf life 24 months",
+    applications: ["Point-of-care triage", "Outbreak response", "Occupational screening"],
     short: "Rapid antigen diagnostic kits for professional healthcare screening.",
     description:
       "High-performance rapid antigen diagnostic kits for professional healthcare screening, delivering results at the point of care within 15 minutes.",
@@ -198,6 +246,12 @@ export const products: Product[] = [
     category: "Glassware",
     group: "Apparatus & Consumables",
     sku: "PYX-ERL-SET",
+    brand: "Pyrex",
+    priceRange: "UGX 480,000 per set",
+    availability: "In Stock",
+    leadTime: "2 – 4 working days",
+    warranty: "Replacement on manufacturing defect",
+    applications: ["Titration", "Media preparation", "Teaching practicals"],
     badge: "Available",
     short: "Borosilicate glass, heavy duty.",
     description:
@@ -223,6 +277,12 @@ export const products: Product[] = [
     category: "Liquid Handling",
     group: "Apparatus & Consumables",
     sku: "THM-PIP-KIT",
+    brand: "Thermo Scientific",
+    priceRange: "UGX 3,150,000 per kit",
+    availability: "In Stock",
+    leadTime: "1 week",
+    warranty: "1 year + annual calibration",
+    applications: ["PCR setup", "ELISA", "Reagent dispensing"],
     short: "Variable volume micropipettes.",
     description:
       "Variable-volume micropipette kit covering routine pipetting ranges, with lightweight ergonomics and autoclavable lower assemblies for contamination control.",
