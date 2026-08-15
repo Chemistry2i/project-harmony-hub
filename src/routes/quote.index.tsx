@@ -170,8 +170,7 @@ function QuotePage() {
               className="card-surface p-8"
               onSubmit={onSubmit}
             >
-              {step === 1 && (
-                <div>
+              <div className={step === 1 ? "" : "hidden"}>
                   <h2 className="mb-1 text-xl font-semibold text-primary">Contact Information</h2>
                   <p className="mb-8 text-sm text-muted-foreground">
                     Please provide your primary institutional contact details.
@@ -196,10 +195,8 @@ function QuotePage() {
                     </button>
                   </div>
                 </div>
-              )}
 
-              {step === 2 && (
-                <div>
+              <div className={step === 2 ? "" : "hidden"}>
                   <h2 className="mb-1 text-xl font-semibold text-primary">Product Selection</h2>
                   <p className="mb-8 text-sm text-muted-foreground">
                     Review your selected items and adjust quantities.
@@ -291,10 +288,8 @@ function QuotePage() {
                     </button>
                   </div>
                 </div>
-              )}
 
-              {step === 3 && (
-                <div>
+              <div className={step === 3 ? "" : "hidden"}>
                   <h2 className="mb-1 text-xl font-semibold text-primary">Procurement Details</h2>
                   <p className="mb-8 text-sm text-muted-foreground">
                     Help us understand your timeline and specific requirements.
@@ -356,7 +351,6 @@ function QuotePage() {
                     </button>
                   </div>
                 </div>
-              )}
             </form>
 
             <p className="mt-6 text-center text-xs text-muted-foreground">
@@ -378,7 +372,7 @@ function Field({
   placeholder,
   name,
   type = "text",
-  required = true,
+  required = false,
 }: {
   label: string;
   placeholder: string;
