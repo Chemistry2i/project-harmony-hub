@@ -133,7 +133,7 @@ function Index() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[78vh]"
+                className="relative mt-8 h-[52vh] w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[78vh]"
               >
                 <img
                   src={HERO_IMAGE}
