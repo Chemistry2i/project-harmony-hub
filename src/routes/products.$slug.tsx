@@ -69,7 +69,7 @@ function ProductDetail() {
                 )}
                 <h1 className="mb-2 text-3xl font-bold text-primary md:text-4xl">{product.name}</h1>
                 <p className="text-sm text-muted-foreground">
-                  SKU: {product.sku} · {product.category}
+                  SKU: {product.sku} · {product.brand} · {product.category}
                 </p>
               </div>
               <p className="text-muted-foreground">{product.description}</p>

@@ -22,13 +22,33 @@ export function ProductCard({ product }: { product: Product }) {
         )}
       </Link>
       <div className="flex flex-grow flex-col p-6">
-        <div className="eyebrow mb-2">{product.category}</div>
+        <div className="eyebrow mb-2">
+          {product.brand} · {product.category}
+        </div>
         <h3 className="mb-2 text-lg font-semibold text-primary">
           <Link to="/products/$slug" params={{ slug: product.slug }} className="hover:text-secondary">
             {product.name}
           </Link>
         </h3>
-        <p className="mb-6 flex-grow text-sm text-muted-foreground">{product.short}</p>
+        <p className="mb-4 flex-grow text-sm text-muted-foreground">{product.short}</p>
+        <dl className="mb-5 space-y-1 text-xs">
+          <div className="flex items-center justify-between gap-3">
+            <dt className="text-muted-foreground">Indicative price</dt>
+            <dd className="text-right font-semibold text-primary">{product.priceRange}</dd>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <dt className="text-muted-foreground">Availability</dt>
+            <dd
+              className={
+                product.availability === "In Stock"
+                  ? "font-semibold text-teal"
+                  : "font-semibold text-secondary"
+              }
+            >
+              {product.availability} · {product.leadTime}
+            </dd>
+          </div>
+        </dl>
         <Link
           to="/quote"
           search={{ product: product.slug }}
