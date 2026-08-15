@@ -15,6 +15,8 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
+import { Route as QuoteIndexRouteImport } from './routes/quote.index'
+import { Route as QuoteSubmittedRouteImport } from './routes/quote.submitted'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +48,16 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
   path: '/products/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuoteIndexRoute = QuoteIndexRouteImport.update({
+  id: '/quote/',
+  path: '/quote/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteSubmittedRoute = QuoteSubmittedRouteImport.update({
+  id: '/quote/submitted',
+  path: '/quote/submitted',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +65,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quote/submitted': typeof QuoteSubmittedRoute
   '/products/': typeof ProductsIndexRoute
+  '/quote/': typeof QuoteIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +75,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quote/submitted': typeof QuoteSubmittedRoute
   '/products': typeof ProductsIndexRoute
+  '/quote': typeof QuoteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,15 +86,31 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quote/submitted': typeof QuoteSubmittedRoute
   '/products/': typeof ProductsIndexRoute
+  '/quote/': typeof QuoteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/services' | '/products/$slug' | '/products/'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/products/$slug'
+    | '/quote/submitted'
+    | '/products/'
+    | '/quote/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/contact' | '/services' | '/products/$slug' | '/products'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/products/$slug'
+    | '/quote/submitted'
+    | '/products'
+    | '/quote'
   id:
     | '__root__'
     | '/'
@@ -86,7 +118,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/services'
     | '/products/$slug'
+    | '/quote/submitted'
     | '/products/'
+    | '/quote/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -95,7 +129,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  QuoteSubmittedRoute: typeof QuoteSubmittedRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
+  QuoteIndexRoute: typeof QuoteIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -142,6 +178,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quote/': {
+      id: '/quote/'
+      path: '/quote'
+      fullPath: '/quote/'
+      preLoaderRoute: typeof QuoteIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote/submitted': {
+      id: '/quote/submitted'
+      path: '/quote/submitted'
+      fullPath: '/quote/submitted'
+      preLoaderRoute: typeof QuoteSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -151,7 +201,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  QuoteSubmittedRoute: QuoteSubmittedRoute,
   ProductsIndexRoute: ProductsIndexRoute,
+  QuoteIndexRoute: QuoteIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
