@@ -180,7 +180,7 @@ function Index() {
         </section>
 
         <section className="border-y border-border bg-surface-low py-20">
-          <div className="container-page">
+          <Reveal className="container-page">
             <div className="mb-12 flex flex-col items-center text-center">
               <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
                 Our Professional Services
