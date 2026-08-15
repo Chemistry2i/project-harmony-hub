@@ -20,8 +20,8 @@ export const Route = createFileRoute("/products/")({
         content:
           "High-precision laboratory and diagnostic solutions for clinical and scientific environments.",
       },
-      { property: "og:image", content: products[0].image },
-      { name: "twitter:image", content: products[0].image },
+      { property: "og:image", content: products[0]?.image ?? "" },
+      { name: "twitter:image", content: products[0]?.image ?? "" },
     ],
   }),
   component: Catalog,

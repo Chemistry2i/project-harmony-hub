@@ -7,7 +7,7 @@ import { getProduct, products } from "@/data/products";
 const SIDE_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAZHemEP5sypsWxWSeeTb_UsUC9dt-dyFpEICvr9jhcf3VnYe1iRiduxS3Em4KHb1l46c9MAFTiNgCrB2xdTdAhA8KbCvcLKfKt3t1yrFdEXhA-WbOOxSnyWubEsCssA241SRzBW-UJSoB8O4CioEihBh8lDKAnByhySH9xjtT0GBhUHhZouBc56uGUIAnDrhcDM12DEII8dcz0cgA45CZMCGyBWYbtSVxYWyZ__nRwqQpiWFgf2oCj";
 
-type QuoteSearch = { product: string | undefined };
+type QuoteSearch = { product?: string | undefined };
 
 export const Route = createFileRoute("/quote/")({
   validateSearch: (search: Record<string, unknown>): QuoteSearch => ({
