@@ -153,7 +153,7 @@ function Index() {
                 </div>
               </motion.div>
             </div>
-          </Reveal>
+          </div>
         </section>
 
         <section className="bg-surface py-20">
