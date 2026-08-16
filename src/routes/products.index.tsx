@@ -30,6 +30,7 @@ export const Route = createFileRoute("/products/")({
 function Catalog() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All Products");
+  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
 
   const filtered = useMemo(
     () =>
@@ -79,23 +80,60 @@ function Catalog() {
                 Showing <span className="font-bold text-primary">{filtered.length}</span> products
               </div>
             </div>
-            <div className="flex w-full flex-wrap gap-3">
-              {categories.map((c) => {
-                const active = c === category;
-                return (
-                  <button
-                    key={c}
-                    onClick={() => setCategory(c)}
-                    className={
-                      active
-                        ? "rounded-lg border border-primary bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
-                        : "rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-secondary hover:text-secondary"
-                    }
-                  >
-                    {c}
-                  </button>
-                );
-              })}
+            <div className="flex w-full flex-wrap gap-3 md:flex-nowrap">
+              <div className="relative w-full md:hidden">
+                <button
+                  type="button"
+                  onClick={() => setMobileCategoryOpen((v) => !v)}
+                  className="flex w-full items-center justify-between rounded-lg border border-input bg-surface px-4 py-3 text-sm font-medium text-primary"
+                >
+                  <span>{category}</span>
+                  <span className="material-symbols-outlined text-base">
+                    {mobileCategoryOpen ? "expand_less" : "expand_more"}
+                  </span>
+                </button>
+                {mobileCategoryOpen && (
+                  <div className="absolute z-50 mt-2 max-h-64 w-full overflow-y-auto rounded-lg border border-border bg-surface shadow-lg">
+                    {categories.map((c) => (
+                      <button
+                        key={c}
+                        onClick={() => {
+                          setCategory(c);
+                          setMobileCategoryOpen(false);
+                        }}
+                        className={`flex w-full items-center px-4 py-3 text-left text-sm ${
+                          c === category
+                            ? "bg-primary/10 font-semibold text-primary"
+                            : "text-muted-foreground hover:bg-surface-low"
+                        }`}
+                      >
+                        {c === category && (
+                          <span className="material-symbols-outlined mr-2 text-base text-secondary">check</span>
+                        )}
+                        {c}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div className="hidden w-full flex-wrap gap-3 md:flex">
+                {categories.map((c) => {
+                  const active = c === category;
+                  return (
+                    <button
+                      key={c}
+                      onClick={() => setCategory(c)}
+                      className={
+                        active
+                          ? "rounded-lg border border-primary bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+                          : "rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-secondary hover:text-secondary"
+                      }
+                    >
+                      {c}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>

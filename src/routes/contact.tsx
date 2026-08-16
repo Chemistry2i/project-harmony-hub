@@ -75,7 +75,7 @@ function Contact() {
         <section className="container-page grid grid-cols-1 gap-10 py-20 lg:grid-cols-3">
           <div className="flex flex-col gap-4 lg:col-span-1">
             {[
-              { icon: "mail", label: "Email", value: "elizabethnalweyiso2@gmail.com" },
+              { icon: "mail", label: "Email", value: "elizabethnalweyiso2@gmail.com", href: "mailto:elizabethnalweyiso2@gmail.com" },
               { icon: "call", label: "Phone", value: "+256 772 248260" },
               {
                 icon: "chat",
