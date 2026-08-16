@@ -15,7 +15,7 @@ const industries = [
     body: "Equipping private and public labs with precision instruments for accurate diagnostics.",
   },
   {
-    icon: "microscope",
+    icon: "labs",
     title: "Research Institutions",
     body: "Providing advanced analytical equipment and scientific apparatus for cutting-edge research.",
   },
