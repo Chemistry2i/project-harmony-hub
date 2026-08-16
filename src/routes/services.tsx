@@ -36,7 +36,6 @@ const services = [
   },
 ];
 
-
 const serviceProcess = [
   {
     step: "1",
@@ -190,8 +189,8 @@ function Services() {
               <h2 className="mb-4 text-3xl font-bold text-primary">How an engagement runs</h2>
               <p className="mb-8 text-muted-foreground">
                 Whether you are commissioning a new laboratory or replacing a single analyser, the
-                work follows the same disciplined sequence so that budgets, timelines and
-                compliance documents are all accounted for.
+                work follows the same disciplined sequence so that budgets, timelines and compliance
+                documents are all accounted for.
               </p>
               <ol className="flex flex-col gap-6">
                 {serviceProcess.map((p) => (

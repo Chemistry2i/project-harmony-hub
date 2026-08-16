@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,23 +16,30 @@ export function Reveal({
 }) {
   const container = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    gsap.fromTo(
-      container.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        delay,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
+  useEffect(() => {
+    const el = container.current;
+    if (!el || typeof window === "undefined") return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
         },
-      },
-    );
+      );
+    }, el);
+
+    return () => ctx.revert();
   }, [delay]);
 
   return (

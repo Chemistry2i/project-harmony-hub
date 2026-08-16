@@ -29,6 +29,65 @@ const values = [
   },
 ];
 
+const leadership = [
+  {
+    name: "Eng. Ronald Wamboga",
+    role: "Managing Director",
+    initials: "RW",
+  },
+  {
+    name: "Dr. Sarah Nakamya",
+    role: "Head of Laboratory Operations",
+    initials: "SN",
+  },
+  {
+    name: "Mr. James Ochieng",
+    role: "Technical Services Manager",
+    initials: "JO",
+  },
+  {
+    name: "Ms. Patricia Atim",
+    role: "Head of Procurement & Logistics",
+    initials: "PA",
+  },
+];
+
+const certifications = [
+  "ISO 9001:2015 Quality Management",
+  "ISO 13485 Medical Device Distribution",
+  "Authorised Distributor – Leading Global Manufacturers",
+  "Certified Installation & Calibration Partner",
+  "Compliant with UNBS Standards for Laboratory Equipment",
+];
+
+const timeline = [
+  {
+    year: "2016",
+    title: "Foundation",
+    body: "Livan Lab Supplies Uganda Limited was established with a focus on laboratory and diagnostic equipment supply.",
+  },
+  {
+    year: "2018",
+    title: "Regional Expansion",
+    body: "Expanded distribution network to serve hospitals and research institutions across East Africa.",
+  },
+  {
+    year: "2020",
+    title: "Service Division",
+    body: "Launched dedicated installation, maintenance and calibration services to support institutional clients.",
+  },
+  {
+    year: "2023",
+    title: "Product Range Growth",
+    body: "Broadened catalogue to include molecular diagnostics, analytical chemistry and laboratory consumables.",
+  },
+  {
+    year: "2025",
+    title: "Strategic Partnerships",
+    body: "Strengthened partnerships with leading global manufacturers for certified in-country technical support.",
+  },
+];
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -146,6 +205,83 @@ function About() {
                 the same confidence as leading international facilities.
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        <section className="container-page py-20">
+          <Reveal>
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Leadership</h2>
+              <p className="max-w-3xl text-muted-foreground">
+                Our leadership team combines scientific expertise, commercial experience and a
+                shared commitment to raising laboratory standards across the region.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {leadership.map((person) => (
+              <div
+                key={person.name}
+                className="flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-secondary/10">
+                  <span className="text-lg font-bold text-secondary">{person.initials}</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-primary">{person.name}</h3>
+                  <p className="text-xs text-muted-foreground">{person.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-surface-low py-20">
+          <div className="container-page">
+            <Reveal>
+              <div className="mb-12 flex flex-col items-center text-center">
+                <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                  Certifications & Compliance
+                </h2>
+                <p className="max-w-3xl text-muted-foreground">
+                  We maintain recognised certifications and partnerships that assure our clients of
+                  quality, reliability and regulatory compliance.
+                </p>
+              </div>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {certifications.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-4 rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:shadow-lg"
+                >
+                  <span className="material-symbols-outlined text-secondary">verified</span>
+                  <p className="text-sm font-medium text-primary">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="container-page py-20">
+          <Reveal>
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Our Journey</h2>
+              <p className="max-w-3xl text-muted-foreground">
+                From our founding to the present, Livan has grown steadily alongside the
+                institutions we serve.
+              </p>
+            </div>
+          </Reveal>
+          <div className="relative border-l border-border pl-8">
+            {timeline.map((item, i) => (
+              <div key={item.year} className="mb-10 last:mb-0">
+                <div className="absolute -left-[5px] mt-2 h-2.5 w-2.5 rounded-full bg-secondary" />
+                <p className="text-sm font-bold text-secondary">{item.year}</p>
+                <h3 className="mb-1 text-base font-semibold text-primary">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
           </div>
         </section>
 
