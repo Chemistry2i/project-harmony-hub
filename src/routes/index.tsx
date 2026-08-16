@@ -195,7 +195,7 @@ function Index() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-grow pt-20">
-        <section className="relative flex min-h-[88vh] items-center overflow-hidden bg-surface">
+        <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-surface">
           <div className="absolute inset-0">
             <img
               src={HERO_BACKDROP}
@@ -263,7 +263,7 @@ function Index() {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mt-8 h-[52vh] w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[78vh]"
+                className="relative mt-8 h-[42vh] w-full overflow-hidden rounded-3xl shadow-2xl lg:col-span-6 lg:mt-0 lg:h-[62vh]"
               >
                 <img
                   src={HERO_IMAGE}
