@@ -13,6 +13,10 @@ import { Reveal } from "@/components/site/Reveal";
 const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCtuq825gqTEGjMnxtePYBBDloBfw5V4aj17x_dwWJ1-2QUlTpcMmBUjF4lcK4Bv8fhypbF1aPADct0JkcO39mBW5vFtVUCtG36954CMxGfqR4xKt5jk7dNeZ8o9fIUr-Z-gTqm862ExKaOIWYzs5330EOTUbnONhYFxPf-zC8jhQrO-uypie9gUf504Kenz1LcGJGJ3TNnq2Zm7p7krcNhOakTRKny-qkF_yhg1C3l6vMTo7q8BaHn";
 
+const HERO_BACKDROP =
+  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80";
+
+
 const productCategories = [
   {
     name: "Laboratory Equipment",
