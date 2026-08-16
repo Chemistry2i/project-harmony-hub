@@ -87,8 +87,8 @@ const deepDives = [
     eyebrow: "Sector 03",
     title: "Research Institutions & NGOs",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Researcher using an analytical balance in a modern research laboratory",
+      "https://images.unsplash.com/photo-1745420052756-1b1c294a6420?auto=format&fit=crop&w=1200&q=80",
+    alt: "Scientist conducting research in a modern laboratory",
     intro:
       "Grant-funded programmes need audit-ready procurement, precise specifications and documented delivery timelines. We supply against donor tender specifications and provide the paperwork required for grant reporting.",
     needs: [
@@ -104,8 +104,8 @@ const deepDives = [
     eyebrow: "Sector 04",
     title: "Universities, Colleges & Schools",
     image:
-      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=1200&q=80",
-    alt: "Students working with microscopes in a university teaching laboratory",
+      "https://images.unsplash.com/photo-1758685734062-165cc0094e61?auto=format&fit=crop&w=1200&q=80",
+    alt: "Teacher and student conducting science experiment in a school laboratory",
     intro:
       "Teaching laboratories buy in cohorts and need equipment that survives heavy student use. We supply durable, repairable instruments with locally available spares and practical training kits mapped to the curriculum.",
     needs: [

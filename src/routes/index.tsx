@@ -13,7 +13,7 @@ import { Reveal } from "@/components/site/Reveal";
 const HERO_IMAGE = "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1920&q=80";
 
 const HERO_BACKDROP =
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80";
+  "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1920&q=80";
 
 const productCategories = [
   {
