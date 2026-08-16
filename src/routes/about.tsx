@@ -31,24 +31,14 @@ const values = [
 
 const leadership = [
   {
-    name: "Eng. Ronald Wamboga",
-    role: "Managing Director",
-    initials: "RW",
+    name: "Nalweyiso Elizabeth",
+    role: "Sales Manager",
+    initials: "NE",
   },
   {
-    name: "Dr. Sarah Nakamya",
+    name: "Nabatanzi Veronica",
     role: "Head of Laboratory Operations",
-    initials: "SN",
-  },
-  {
-    name: "Mr. James Ochieng",
-    role: "Technical Services Manager",
-    initials: "JO",
-  },
-  {
-    name: "Ms. Patricia Atim",
-    role: "Head of Procurement & Logistics",
-    initials: "PA",
+    initials: "NV",
   },
 ];
 
@@ -218,7 +208,7 @@ function About() {
               </p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-6">
             {leadership.map((person) => (
               <div
                 key={person.name}
