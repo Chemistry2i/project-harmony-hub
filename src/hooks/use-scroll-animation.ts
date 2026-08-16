@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function useScrollAnimation(options?: any) {
+type ScrollTriggerOptions = Partial<ScrollTrigger.Vars>;
+
+export function useScrollAnimation(options?: ScrollTriggerOptions) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

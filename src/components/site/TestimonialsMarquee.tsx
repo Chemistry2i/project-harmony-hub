@@ -31,7 +31,7 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
   return (
-    <div className="flex w-[320px] shrink-0 flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg min-h-[280px]">
+    <div className="flex h-[340px] w-[340px] shrink-0 flex-col whitespace-normal break-words rounded-xl border border-border bg-surface p-7 text-left transition-all duration-300 hover:shadow-lg">
       <div className="mb-4 flex items-center gap-1 text-secondary">
         {[1, 2, 3, 4, 5].map((star) => (
           <span key={star} className="material-symbols-outlined text-base">
@@ -39,10 +39,10 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
           </span>
         ))}
       </div>
-      <p className="mb-6 flex-grow text-sm text-muted-foreground italic line-clamp-4">
+      <p className="mb-6 flex-grow overflow-hidden text-sm leading-relaxed text-muted-foreground italic">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
-      <div className="mt-auto">
+      <div className="mt-auto border-t border-border pt-4">
         <p className="text-sm font-semibold text-primary">{testimonial.name}</p>
         <p className="text-xs text-muted-foreground">{testimonial.role}</p>
         <p className="text-xs text-muted-foreground">{testimonial.institution}</p>
@@ -55,7 +55,7 @@ export function TestimonialsMarquee() {
   const items = [...testimonials, ...testimonials];
   return (
     <div className="group relative overflow-hidden">
-      <div className="flex animate-marquee-left whitespace-nowrap">
+      <div className="flex w-max animate-marquee-left">
         {items.map((t, i) => (
           <div key={`testimonial-${t.name}-${i}`} className="mx-3">
             <TestimonialCard testimonial={t} />
