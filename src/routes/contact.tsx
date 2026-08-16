@@ -163,7 +163,7 @@ function Contact() {
           <div className="card-surface overflow-hidden">
             <iframe
               title="Livan Lab Supplies Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.755043393518!2d32.5816!3d0.3146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0e0e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sIvory%20Plaza%2C%20Wilson%20Rd%2C%20Kampala!5e0!3m2!1sen!2sug!4v1690000000000"
+              src="https://maps.google.com/maps?q=B8+Ivory+Plaza+Wilson+Rd+Kampala+Uganda&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}

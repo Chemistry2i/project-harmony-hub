@@ -193,7 +193,7 @@ function QuotePage() {
                     <Field
                       name="location"
                       label="Facility Location"
-                      placeholder="City, Country"
+                      placeholder="e.g., B8, Ivory Plaza, Wilson Rd, Kampala"
                       required={false}
                     />
                   </div>
