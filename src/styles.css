@@ -172,6 +172,18 @@
   border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
 }
 
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--border) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--border) 70%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility bg-grid-fade {
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 55%, transparent 100%);
+}
+
+
 @layer components {
   .btn-primary:hover {
     background-color: var(--primary);

@@ -32,7 +32,7 @@ export function Reveal({
           start: "top 85%",
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
   }, [delay]);
 
