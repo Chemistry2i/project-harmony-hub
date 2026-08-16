@@ -14,7 +14,7 @@ const industriesRow1 = [
       "From routine pathology to specialised diagnostics, we equip private and public medical laboratories with reliable instruments and ongoing technical support.",
   },
   {
-    icon: "microscope",
+    icon: "labs",
     title: "Research Institutions",
     description:
       "We provide advanced analytical balances, precision microscopes, molecular diagnostics and scientific apparatus for cutting-edge research programmes.",
