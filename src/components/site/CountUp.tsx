@@ -52,7 +52,7 @@ export function StatsBand({
       {stats.map((s) => (
         <div key={s.label} className="text-center">
           <div className="text-3xl font-bold text-secondary md:text-4xl">
-            <CountUp to={s.value} suffix={s.suffix} prefix={s.prefix} />
+            <CountUp to={s.value} suffix={s.suffix ?? ""} prefix={s.prefix ?? ""} />
           </div>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
             {s.label}
