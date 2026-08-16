@@ -200,20 +200,15 @@ function Index() {
         <section className="relative flex min-h-[88vh] items-center overflow-hidden bg-surface">
           <div className="absolute inset-0">
             <img
-              src={HERO_IMAGE}
+              src={HERO_BACKDROP}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover opacity-[0.18]"
+              className="h-full w-full object-cover opacity-[0.14]"
             />
           </div>
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
+          <div className="bg-grid bg-grid-fade pointer-events-none absolute inset-0 opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-secondary/15" />
+
           <div className="container-page relative z-10 w-full">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
               <motion.div
