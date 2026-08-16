@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { StatsBand } from "@/components/site/CountUp";
 
 const services = [
   {
@@ -32,6 +33,89 @@ const services = [
     icon: "local_shipping",
     title: "Logistics Support",
     body: "End-to-end supply chain management for sensitive reagents and heavy laboratory hardware.",
+  },
+];
+
+
+const serviceProcess = [
+  {
+    step: "1",
+    title: "Site visit & needs assessment",
+    body: "We walk the laboratory, review test volumes, bench space, power and water services, and document what is required before any quotation is written.",
+  },
+  {
+    step: "2",
+    title: "Configuration & written quotation",
+    body: "You receive a specification sheet with indicative UGX pricing, lead time, warranty terms and consumable running costs — ready for tender or board approval.",
+  },
+  {
+    step: "3",
+    title: "Delivery, installation & commissioning",
+    body: "Our engineers clear, deliver and install the equipment, run calibration and verification, and hand over installation reports for your quality file.",
+  },
+  {
+    step: "4",
+    title: "Training & handover",
+    body: "Laboratory staff are trained on operation, daily QC and basic troubleshooting, with quick-reference guides left on site.",
+  },
+  {
+    step: "5",
+    title: "Ongoing maintenance",
+    body: "Scheduled preventative visits, reagent replenishment and responsive breakdown support keep uptime high across the equipment lifecycle.",
+  },
+];
+
+const plans = [
+  {
+    name: "Essential Care",
+    response: "72h response",
+    body: "For single instruments and smaller laboratories that need dependable cover without a full contract.",
+    features: [
+      "Two preventative maintenance visits a year",
+      "Remote troubleshooting support",
+      "Discounted spare parts and labour",
+    ],
+  },
+  {
+    name: "Priority Care",
+    response: "48h response",
+    body: "For busy diagnostic laboratories where turnaround time is contractual and downtime is costly.",
+    features: [
+      "Four preventative maintenance visits a year",
+      "Priority engineer dispatch countrywide",
+      "Annual calibration and verification reports",
+      "Reagent scheduling and stock reservation",
+    ],
+  },
+  {
+    name: "Institutional Care",
+    response: "24h response",
+    body: "For hospitals, national programmes and multi-site networks running critical laboratory services.",
+    features: [
+      "Quarterly service plus unlimited corrective visits",
+      "Loan instrument cover during major repairs",
+      "Dedicated account and technical manager",
+      "Compliance documentation for audits and accreditation",
+    ],
+  },
+];
+
+const serviceFaqs = [
+  {
+    q: "Do you service equipment that Livan did not supply?",
+    a: "Yes. Our engineers service most common analyser, centrifuge, microscope and cold-storage brands, subject to spare-part availability, and we will tell you upfront if a unit is beyond economical repair.",
+  },
+  {
+    q: "Is installation included in the equipment price?",
+    a: "Installation, commissioning and initial user training are included on major instruments delivered within Uganda. Upcountry travel and accommodation, where required, are itemised in the quotation.",
+  },
+  {
+    q: "Can you help design a completely new laboratory?",
+    a: "We provide layout advice, workflow zoning, utility requirements and phased equipment lists so that a new laboratory can be commissioned in stages as funding is released.",
+  },
+  {
+    q: "How are spare parts and reagents supplied?",
+    a: "Fast-moving reagents and consumables are held locally and dispatched within 24–72 hours. Instrument-specific parts are ordered from the manufacturer with the lead time confirmed in writing.",
   },
 ];
 
@@ -110,7 +194,7 @@ function Services() {
                 compliance documents are all accounted for.
               </p>
               <ol className="flex flex-col gap-6">
-                {process.map((p) => (
+                {serviceProcess.map((p) => (
                   <li key={p.title} className="flex gap-5">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-sm font-bold text-secondary">
                       {p.step}
