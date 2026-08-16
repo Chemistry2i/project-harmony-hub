@@ -56,12 +56,12 @@ const industriesRow2 = [
 
 function IndustryCard({ industry }: { industry: (typeof industriesRow1)[0] }) {
   return (
-    <div className="flex w-[280px] shrink-0 flex-col items-center gap-4 rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg">
+    <div className="flex w-[280px] shrink-0 flex-col items-center gap-4 rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg min-h-[320px]">
       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary/10">
         <span className="material-symbols-outlined text-2xl text-secondary">{industry.icon}</span>
       </div>
       <h3 className="text-sm font-semibold text-primary">{industry.title}</h3>
-      <p className="text-xs text-muted-foreground">{industry.description}</p>
+      <p className="text-xs text-muted-foreground line-clamp-3">{industry.description}</p>
       <Link to="/industries" className="btn-outline mt-auto w-full text-xs">
         Learn More
       </Link>

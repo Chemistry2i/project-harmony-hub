@@ -31,7 +31,7 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
   return (
-    <div className="flex w-[320px] shrink-0 flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg">
+    <div className="flex w-[320px] shrink-0 flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg min-h-[280px]">
       <div className="mb-4 flex items-center gap-1 text-secondary">
         {[1, 2, 3, 4, 5].map((star) => (
           <span key={star} className="material-symbols-outlined text-base">
@@ -39,7 +39,7 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
           </span>
         ))}
       </div>
-      <p className="mb-6 flex-grow text-sm text-muted-foreground italic">
+      <p className="mb-6 flex-grow text-sm text-muted-foreground italic line-clamp-4">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
       <div className="mt-auto">

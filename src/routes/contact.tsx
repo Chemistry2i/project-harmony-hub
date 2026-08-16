@@ -86,12 +86,12 @@ function Contact() {
           <div className="flex flex-col gap-4 lg:col-span-1">
             {[
               { icon: "mail", label: "Email", value: "info@livanlabsupplies.co.ug" },
-              { icon: "call", label: "Phone", value: "+256 700 000 000" },
+              { icon: "call", label: "Phone", value: "+256 772 248260" },
               {
                 icon: "chat",
                 label: "WhatsApp",
-                value: "+256 700 000 000",
-                href: "https://wa.me/256700000000",
+                value: "+256 772 248260",
+                href: "https://wa.me/256772248260",
               },
               { icon: "location_on", label: "Office", value: "Kampala, Uganda" },
               { icon: "schedule", label: "Hours", value: "Mon – Fri, 8:00 – 17:00 EAT" },

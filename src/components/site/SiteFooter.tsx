@@ -17,7 +17,7 @@ export function SiteFooter() {
           </p>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/256700000000"
+              href="https://wa.me/256772248260"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -35,7 +35,7 @@ export function SiteFooter() {
               <span className="material-symbols-outlined text-base">mail</span>
             </a>
             <a
-              href="tel:+256700000000"
+              href="tel:+256772248260"
               aria-label="Phone"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
             >
