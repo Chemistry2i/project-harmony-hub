@@ -13,6 +13,9 @@ import { Reveal } from "@/components/site/Reveal";
 const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCtuq825gqTEGjMnxtePYBBDloBfw5V4aj17x_dwWJ1-2QUlTpcMmBUjF4lcK4Bv8fhypbF1aPADct0JkcO39mBW5vFtVUCtG36954CMxGfqR4xKt5jk7dNeZ8o9fIUr-Z-gTqm862ExKaOIWYzs5330EOTUbnONhYFxPf-zC8jhQrO-uypie9gUf504Kenz1LcGJGJ3TNnq2Zm7p7krcNhOakTRKny-qkF_yhg1C3l6vMTo7q8BaHn";
 
+const HERO_BACKDROP =
+  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80";
+
 const productCategories = [
   {
     name: "Laboratory Equipment",
@@ -196,20 +199,15 @@ function Index() {
         <section className="relative flex min-h-[88vh] items-center overflow-hidden bg-surface">
           <div className="absolute inset-0">
             <img
-              src={HERO_IMAGE}
+              src={HERO_BACKDROP}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover opacity-[0.18]"
+              className="h-full w-full object-cover opacity-[0.14]"
             />
           </div>
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
+          <div className="bg-grid bg-grid-fade pointer-events-none absolute inset-0 opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-secondary/15" />
+
           <div className="container-page relative z-10 w-full">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
               <motion.div
@@ -507,6 +505,61 @@ function Index() {
           </Reveal>
         </section>
         <WaveDivider />
+
+        <section className="relative overflow-hidden border-y border-border bg-surface-low py-20">
+          <div className="bg-grid bg-grid-fade pointer-events-none absolute inset-0 opacity-60" />
+          <Reveal className="container-page relative">
+            <div className="mb-10 max-w-3xl">
+              <p className="eyebrow mb-3">Laboratory supplies in Uganda</p>
+              <h2 className="mb-4 text-3xl font-bold text-primary md:text-4xl">
+                Your trusted laboratory equipment supplier in Kampala and across East Africa
+              </h2>
+              <p className="text-muted-foreground">
+                Livan Lab Supplies Uganda Limited supplies clinical laboratory equipment, diagnostic
+                analyzers, microscopes, centrifuges, reagents and consumables to hospitals, medical
+                laboratories, universities, schools and industrial testing facilities. Every
+                quotation includes manufacturer warranties, installation, operator training and
+                preventive maintenance options so your laboratory stays accurate, compliant and
+                productive.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Diagnostic equipment supply",
+                  body: "Clinical chemistry, haematology, immunoassay and molecular diagnostic platforms from certified global manufacturers, delivered and commissioned nationwide.",
+                  to: "/products" as const,
+                  cta: "Browse the catalogue",
+                },
+                {
+                  title: "Laboratory installation & service",
+                  body: "Site preparation advice, installation, calibration, operator training and scheduled preventive maintenance delivered by our in-country engineers.",
+                  to: "/services" as const,
+                  cta: "See our services",
+                },
+                {
+                  title: "Sectors we supply",
+                  body: "Hospitals, research institutes, universities, schools, agricultural and industrial laboratories across Uganda and the wider East African region.",
+                  to: "/industries" as const,
+                  cta: "Industries we serve",
+                },
+              ].map((item) => (
+                <div key={item.title} className="card-surface flex flex-col gap-3 p-7">
+                  <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  <Link
+                    to={item.to}
+                    className="mt-auto inline-flex items-center gap-1 pt-2 text-sm font-semibold text-secondary hover:underline"
+                  >
+                    {item.cta}
+                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+        <WaveDivider flip />
 
         <section className="bg-surface py-20">
           <Reveal className="container-page">

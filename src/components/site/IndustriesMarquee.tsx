@@ -56,12 +56,14 @@ const industriesRow2 = [
 
 function IndustryCard({ industry }: { industry: (typeof industriesRow1)[0] }) {
   return (
-    <div className="flex w-[280px] shrink-0 flex-col items-center gap-4 rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg min-h-[320px]">
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary/10">
+    <div className="flex h-[340px] w-[300px] shrink-0 flex-col items-center gap-4 whitespace-normal break-words rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary/10">
         <span className="material-symbols-outlined text-2xl text-secondary">{industry.icon}</span>
       </div>
       <h3 className="text-sm font-semibold text-primary">{industry.title}</h3>
-      <p className="text-xs text-muted-foreground line-clamp-3">{industry.description}</p>
+      <p className="overflow-hidden text-xs leading-relaxed text-muted-foreground">
+        {industry.description}
+      </p>
       <Link to="/industries" className="btn-outline mt-auto w-full text-xs">
         Learn More
       </Link>
@@ -76,7 +78,7 @@ export function IndustriesMarquee() {
   return (
     <div className="flex flex-col gap-6">
       <div className="group relative overflow-hidden">
-        <div className="flex animate-marquee-left whitespace-nowrap">
+        <div className="flex w-max animate-marquee-left">
           {row1Items.map((ind, i) => (
             <div key={`row1-${ind.title}-${i}`} className="mx-3">
               <IndustryCard industry={ind} />
@@ -88,7 +90,7 @@ export function IndustriesMarquee() {
       </div>
 
       <div className="group relative overflow-hidden">
-        <div className="flex animate-marquee-right whitespace-nowrap">
+        <div className="flex w-max animate-marquee-right">
           {row2Items.map((ind, i) => (
             <div key={`row2-${ind.title}-${i}`} className="mx-3">
               <IndustryCard industry={ind} />
