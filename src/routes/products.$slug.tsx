@@ -27,7 +27,7 @@ export const Route = createFileRoute("/products/$slug")({
         { property: "og:type", content: "product" },
         { property: "og:url", content: `/products/${product.slug}` },
       ],
-      links: [{ rel: "canonical", href: `/products/${product.slug}` }],
+      links: [{ rel: "canonical", href: `https://www.livanlabs.com/products/${product.slug}` }],
       scripts: [
         {
           type: "application/ld+json",

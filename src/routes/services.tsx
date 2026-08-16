@@ -127,13 +127,25 @@ export const Route = createFileRoute("/services")({
         content:
           "Equipment supply, installation, preventative maintenance, laboratory setup support, sourcing and logistics from Livan Lab Supplies Uganda Limited.",
       },
+      {
+        name: "keywords",
+        content:
+          "laboratory installation Uganda, equipment maintenance, laboratory setup, calibration services, technical support, supply chain logistics, Kampala laboratory services",
+      },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Laboratory Services | Livan Lab Supplies Uganda" },
       {
         property: "og:description",
         content:
           "Technical support and consultation that keeps your laboratory efficient, compliant and reliable.",
       },
+      { property: "og:url", content: "https://www.livanlabs.com/services" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/services" }],
   }),
   component: Services,
 });

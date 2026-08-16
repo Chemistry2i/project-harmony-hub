@@ -14,6 +14,13 @@ export const Route = createFileRoute("/products/")({
         content:
           "Browse certified laboratory equipment, diagnostic analyzers, apparatus and consumables available from Livan Lab Supplies Uganda Limited.",
       },
+      {
+        name: "keywords",
+        content:
+          "laboratory equipment Uganda, diagnostic analyzers, laboratory glassware, lab consumables, reagents, microscopes, centrifuges, balances, pipettes, biosafety cabinets, incubators",
+      },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Product Catalog | Livan Lab Supplies Uganda" },
       {
         property: "og:description",
@@ -21,8 +28,15 @@ export const Route = createFileRoute("/products/")({
           "High-precision laboratory and diagnostic solutions for clinical and scientific environments.",
       },
       { property: "og:image", content: products[0]?.image ?? "" },
+      { property: "og:url", content: "https://www.livanlabs.com/products" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: products[0]?.image ?? "" },
+      { name: "twitter:site", content: "@livanlabsug" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/products" }],
   }),
   component: Catalog,
 });

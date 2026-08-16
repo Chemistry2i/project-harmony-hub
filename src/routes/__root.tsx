@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Supplier of laboratory equipment, diagnostic analyzers, apparatus and consumables to hospitals, research institutes and universities across Uganda and East Africa.",
       },
-      { name: "author", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "author", content: "Wambogo Hassan Sadat" },
       { name: "theme-color", content: "#0f2545" },
       { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
       { property: "og:type", content: "website" },
@@ -113,20 +113,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          url: "https://www.livanlabs.com",
           name: "Livan Lab Supplies Uganda Limited",
           description:
             "Supplier of laboratory equipment, diagnostic analyzers and scientific apparatus in Uganda.",
           areaServed: "Uganda",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "B8, Ivory Plaza, Wilson Rd",
             addressLocality: "Kampala",
             addressCountry: "UG",
           },
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+256-700-000-000",
+            telephone: "+256-772-248260",
             contactType: "sales",
-            email: "info@livanlabsupplies.co.ug",
+            email: "wambogohassan63@gmail.com",
+          },
+          sameAs: [
+            "https://maps.app.goo.gl/mWwT86ZFe6Ko511u8",
+            "https://wa.me/256772248260",
+          ],
+          developer: {
+            "@type": "Person",
+            name: "Wambogo Hassan Sadat",
           },
         }),
       },

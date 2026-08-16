@@ -21,12 +21,24 @@ export const Route = createFileRoute("/quote/")({
         content:
           "Request an institutional quotation for laboratory and diagnostic equipment. A Livan specialist responds within 24 hours.",
       },
+      {
+        name: "keywords",
+        content:
+          "laboratory quotation Uganda, equipment quote, diagnostic equipment quotation, institutional supply, laboratory procurement, Kampala",
+      },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Request a Quote | Livan Lab Supplies Uganda" },
       {
         property: "og:description",
         content: "Tell us your requirements and receive a tailored quotation within 24 hours.",
       },
+      { property: "og:url", content: "https://www.livanlabs.com/quote" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/quote" }],
   }),
   component: QuotePage,
 });

@@ -85,8 +85,15 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Livan Lab Supplies Uganda Limited is a premier provider of scientific and diagnostic solutions, linking world-leading manufacturers with regional institutions.",
+          "Livan Lab Supplies Uganda Limited is a premier provider of scientific and diagnostic solutions, linking world-leading manufacturers with regional institutions across Uganda and East Africa.",
       },
+      {
+        name: "keywords",
+        content:
+          "about Livan Lab Supplies, laboratory equipment Uganda, diagnostic instruments supplier, scientific solutions East Africa, Kampala laboratory supplier",
+      },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "About Livan Lab Supplies Uganda Limited" },
       {
         property: "og:description",
@@ -94,8 +101,14 @@ export const Route = createFileRoute("/about")({
           "Empowering scientific excellence in Uganda through reliable laboratory, diagnostic and scientific solutions.",
       },
       { property: "og:image", content: ABOUT_HERO },
+      { property: "og:url", content: "https://livanlabsupplies.co.ug/about" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: ABOUT_HERO },
     ],
+      links: [{ rel: "canonical", href: "https://www.livanlabs.com/about" }],
   }),
   component: About,
 });

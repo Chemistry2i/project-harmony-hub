@@ -172,20 +172,33 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Livan Lab Supplies Uganda Limited supplies laboratory equipment, diagnostic instruments and scientific apparatus to healthcare, research and educational institutions.",
+          "Livan Lab Supplies Uganda Limited supplies laboratory equipment, diagnostic instruments and scientific apparatus to healthcare, research and educational institutions across Uganda and East Africa.",
       },
       {
-        property: "og:title",
-        content: "Livan Lab Supplies Uganda | Laboratory & Diagnostic Equipment",
+        name: "keywords",
+        content:
+          "laboratory equipment Uganda, diagnostic instruments, analytical balances, microscopes, centrifuges, hematology analyzers, laboratory glassware, lab consumables, reagents, Livan Lab Supplies, Kampala, East Africa",
       },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
+      { name: "geo.region", content: "UG" },
+      { name: "geo.placename", content: "Kampala" },
+      { property: "og:title", content: "Livan Lab Supplies Uganda | Laboratory & Diagnostic Equipment" },
       {
         property: "og:description",
         content:
           "Precision laboratory equipment, diagnostic instruments and scientific solutions across Uganda and East Africa.",
       },
       { property: "og:image", content: HERO_IMAGE },
+      { property: "og:url", content: "https://livanlabsupplies.co.ug/" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: HERO_IMAGE },
+      { name: "twitter:site", content: "@livanlabsug" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/" }],
   }),
   component: Index,
 });

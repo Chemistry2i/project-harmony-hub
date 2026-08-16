@@ -18,7 +18,12 @@ export const Route = createFileRoute("/quote/submitted")({
         content: "We have received your request for quotation and will respond within 24 hours.",
       },
       { name: "robots", content: "noindex" },
+      { property: "og:url", content: "https://www.livanlabs.com/quote/submitted" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/quote/submitted" }],
   }),
   component: Submitted,
 });

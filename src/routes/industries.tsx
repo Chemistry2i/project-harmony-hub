@@ -177,15 +177,27 @@ export const Route = createFileRoute("/industries")({
       {
         name: "description",
         content:
-          "Livan Lab Supplies Uganda Limited serves hospitals, medical laboratories, research institutions, universities, schools and industrial laboratories.",
+          "Livan Lab Supplies Uganda Limited serves hospitals, medical laboratories, research institutions, universities, schools and industrial laboratories across Uganda and East Africa.",
       },
+      {
+        name: "keywords",
+        content:
+          "laboratory equipment for hospitals, medical laboratories Uganda, research institutions, universities, schools, industrial laboratories, diagnostic equipment East Africa",
+      },
+      { name: "author", content: "Wambogo Hassan Sadat" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Industries We Serve | Livan Lab Supplies Uganda" },
       {
         property: "og:description",
         content:
           "From healthcare to agriculture, we supply laboratory and diagnostic solutions across a wide range of industries in Uganda and East Africa.",
       },
+      { property: "og:url", content: "https://www.livanlabs.com/industries" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_UG" },
+      { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
     ],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/industries" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd) }],
   }),
   component: Industries,
