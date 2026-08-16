@@ -164,7 +164,7 @@ export const products: Product[] = [
     description:
       "The cobas c111 analyzer is a compact, highly efficient continuous random-access analyzer intended for the in vitro determination of clinical chemistry parameters in serum, plasma, urine, and whole blood. Designed specifically for small workload laboratories, it delivers the same high-quality results expected from larger Roche systems.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYKCsaVGPg7Hfh2qIpnRCmOQgjfPTAMFj2V3OPEauzf9uBfCgqZpaLscThaNvRkHDdZqZz505XIMghVBq3Msg46yy7T1X8lHD3wkCUeXuUfXUlU_U3PGu15bNJZruxHfcYriYBVZo6vTng58GzScNJuqhV_yee0sPAk1WlmGgxmwpN69VZ2cN56cBco1agUptMPlerorae_iFBlOfxFiMlWfwJbhnssST8YEEolp1RLOolN8XczSD4",
+      "https://www.swiftermall.com/5365-large_default/cobas-c-111-chemistry-analyzer-by-roche.jpg",
     specs: [
       { label: "Throughput", value: "Up to 100 tests/hour" },
       { label: "Sample Types", value: "Serum, plasma, urine, whole blood" },
@@ -231,7 +231,7 @@ export const products: Product[] = [
     description:
       "High-performance rapid antigen diagnostic kits for professional healthcare screening, delivering results at the point of care within 15 minutes.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAeepDyquFcTo5TN9wpiQoP7rlsw7T1wSmkXaZ2LV825JS-L0zqauTG8_2tMfAcWqFR1HtjlbI43s3TC6iZK2sigYMTt9C-YVpn1n53r0_Q5rDF8idloQkOocGIb-A0nD5fsHc__XnD4kx-SBPIgH0yzEt5M3AHo8wPU1hc5GT2qzcaFKs_QKi9E4lRt8BN0koYPAUn-Dt625KqvUIiQPb2W2Q-Stf4bTNHC_jIgDUchqQKiF6eYjb6",
+      "https://neatstore.ng/wp-content/uploads/2023/02/Abbott-PANBIO-COVID-19-Ag-Rapid-Test-Device-per-25-stuks-lagos-nigeria-1-1.jpg",
     specs: [
       { label: "Result Time", value: "15 minutes" },
       { label: "Pack Size", value: "25 tests per kit" },
@@ -292,7 +292,7 @@ export const products: Product[] = [
     description:
       "Variable-volume micropipette kit covering routine pipetting ranges, with lightweight ergonomics and autoclavable lower assemblies for contamination control.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDn6Zki3KDp5U8T4szZR4fj_3cxWp5qWZUDu3zsTMQ7cE7KGdDG9MfRB2Mjjh_TITFtJkzDOscUuM0QhmYi_mXFfLvQdc00JZ1u4wqGm0HRJMKgBlNLNi1MCJBZa83j_9OkNqNI0xbaquYiJc6aJuGKkv21Ba9RJCIcII_N_iWGw2SvT8HDbeQ8PhSrOH_9NiaA1vtu90i0gqVUGYJsh-YXy7aGNrfX-8kPLYYrVKGxZ56x3sxEcEEr",
+      "https://assets.fishersci.com/TFS-Assets/CCG/Gilson/product-images/pipetman.JPG-650.jpg",
     specs: [
       { label: "Ranges", value: "0.5-10, 10-100, 100-1000 µL" },
       { label: "Accuracy", value: "Within ISO 8655 limits" },
@@ -323,7 +323,7 @@ export const products: Product[] = [
     description:
       "Cartridge-based real-time PCR system delivering laboratory-quality molecular results in under two hours with minimal hands-on time. Widely deployed across Uganda for TB and HIV viral-load testing programmes.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYKCsaVGPg7Hfh2qIpnRCmOQgjfPTAMFj2V3OPEauzf9uBfCgqZpaLscThaNvRkHDdZqZz505XIMghVBq3Msg46yy7T1X8lHD3wkCUeXuUfXUlU_U3PGu15bNJZruxHfcYriYBVZo6vTng58GzScNJuqhV_yee0sPAk1WlmGgxmwpN69VZ2cN56cBco1agUptMPlerorae_iFBlOfxFiMlWfwJbhnssST8YEEolp1RLOolN8XczSD4",
+      "https://d17eythm3w95tp.cloudfront.net/media/76109/conversions/genexpert-large.png",
     specs: [
       { label: "Modules", value: "4 independent modules" },
       { label: "Time to Result", value: "Under 2 hours" },
@@ -354,7 +354,7 @@ export const products: Product[] = [
     description:
       "Fully automated chemiluminescence immunoassay analyzer with 180 tests per hour throughput, continuous loading and onboard reagent refrigeration - designed for mid-volume hospital laboratories.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYKCsaVGPg7Hfh2qIpnRCmOQgjfPTAMFj2V3OPEauzf9uBfCgqZpaLscThaNvRkHDdZqZz505XIMghVBq3Msg46yy7T1X8lHD3wkCUeXuUfXUlU_U3PGu15bNJZruxHfcYriYBVZo6vTng58GzScNJuqhV_yee0sPAk1WlmGgxmwpN69VZ2cN56cBco1agUptMPlerorae_iFBlOfxFiMlWfwJbhnssST8YEEolp1RLOolN8XczSD4",
+      "https://5.imimg.com/data5/WHATSAPP/Default/2024/5/419273546/BA/CZ/CG/133082639/new-product.jpeg",
     specs: [
       { label: "Throughput", value: "180 tests/hour" },
       { label: "Reagent Positions", value: "15 refrigerated positions" },
@@ -385,7 +385,7 @@ export const products: Product[] = [
     description:
       "Automated urine chemistry analyzer processing up to 276 samples per hour with double-wavelength reflectance measurement and automatic strip feeding for busy outpatient laboratories.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCTp8JpW-CiOlNvVMoWx1jlmgO-wQJBKhy-N1CUuDZ0b-YVctpqnOuSxp0su-lvhUOba6sgUk6vVJGorNluXH4TqZYqSJhXkMjSjc_IEUStY0R0wHYBgNJRk63J6FnDPQO72H1eLIz8LpmEuItqOaziwvyXwJ4exqlvbtvqckh3hrO56xUXhjrq8C9qJGYKyFleOpEw03WX-7GRlRNC2beeVqOLkWuus3sH6TNuHWPHs8NiKG56txlT",
+      "https://cdn.hospitalstore.com/images/detailed/116/1500495068.webp?t=1769754627",
     specs: [
       { label: "Throughput", value: "Up to 276 samples/hour" },
       { label: "Parameters", value: "11 chemistry parameters + colour/turbidity" },
@@ -415,7 +415,7 @@ export const products: Product[] = [
     description:
       "General-purpose incubator with 100-litre chamber, gravity convection and precise temperature uniformity for microbiological culture and routine sample conditioning.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDH748zn1FhK8-yGZ4cpMsUpQnTyl028z5-gMk3BxEQs_iXE-33UtP5ZwWZweAaD1Vf6e3PDRr2a40xEXySedUKeij8sPodE6uwL6FkOmAjjJQXrJ7dJfKMUP4Ga9PNgGsEvG_7r8nRBhELW2Jpd0fuEF47IGaiwYeoRZxbNbiaCagSpRkkQtChrB5cIGqWClEwc_dqepg59aqsYh5pc4qIoJGnzIL284tTV6mxr0S4ABkorjN0k9cl",
+      "https://res.cloudinary.com/iwh/image/upload/q_auto,g_center/h_768/assets/1/26/Thermo_ScientificIMH180-S_ft1.jpg",
     specs: [
       { label: "Chamber Volume", value: "100 L" },
       { label: "Temperature Range", value: "Ambient +5C to 75C" },
@@ -446,7 +446,7 @@ export const products: Product[] = [
     description:
       "Class II Type A2 biological safety cabinet with 70% air recirculation and 30% exhaust, HEPA-filtered downflow, and airflow monitoring - essential for handling infectious clinical samples.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCx5SCgaDm87SM43JRYtoxyvLEoYMuzGh0Em7RuAD-DVtWQKiCeuLH5bwEf82hj8LpVITFfX43kWnmA_rXjOdQueVAV7GAWs-SfoKwipPQIuOMVR3hY8FDyLVPCgrdJhRXhp8vuLW2HlH3gK9Lg_J5a2_n2GNxRafh5P2aa1LcxKeXmUQJEe9-sRkw5cMJKOwSkCed2Rjcrtd1xv8uw-XIwb3valaUmpInN5ygbst8cFE9R0DgvQEjP",
+      "https://www.csilabshop.com/wp-content/uploads/2018/04/20170823050143_3634-247x296.jpg",
     specs: [
       { label: "Class", value: "II Type A2" },
       { label: "Work Area Width", value: "1,200 mm" },
@@ -477,7 +477,7 @@ export const products: Product[] = [
     description:
       "Compact 8-place clinical centrifuge for serum and plasma separation, with quiet operation, short cycle times and a maintenance-free brushless drive.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDH748zn1FhK8-yGZ4cpMsUpQnTyl028z5-gMk3BxEQs_iXE-33UtP5ZwWZweAaD1Vf6e3PDRr2a40xEXySedUKeij8sPodE6uwL6FkOmAjjJQXrJ7dJfKMUP4Ga9PNgGsEvG_7r8nRBhELW2Jpd0fuEF47IGaiwYeoRZxbNbiaCagSpRkkQtChrB5cIGqWClEwc_dqepg59aqsYh5pc4qIoJGnzIL284tTV6mxr0S4ABkorjN0k9cl",
+      "https://alt-model-images.s3.us-west-2.amazonaws.com/square-version-images/2024-04-10175352%2B0000IMG_9182.jpg",
     specs: [
       { label: "Capacity", value: "8 x 15 mL tubes" },
       { label: "Max Speed", value: "6,000 rpm" },
@@ -507,7 +507,7 @@ export const products: Product[] = [
     description:
       "Lightweight binocular microscope with high-contrast LED illumination and Olympus achromat objectives, designed for clinical malaria diagnosis and high-volume teaching use.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCm_Uf3hqcbbNEzNxYo4hxyO7mqd-fJ5CIZ7ylG_tJi_VFaEUTiGgvrgyKh_Q31WkUBhIs0mDbQR6zplPShbPSaLaV4PwSETiTMGQ-Z2J_qaqV3x8JvdVhxDLTL0IYxnqZM1dlB7lQ389Wz40-REG9qrqB8kmJZ-eka_guz_0s_9k04r5nBYUG84yNAKi9TOy7NDXk_fq1n9MedibiYoEPVGxzM_h1o808zYYfiCyyI3vetPMCToI4u",
+      "https://emedicalsupplies.ug/wp-content/uploads/2023/03/olympus-microscope.jpg",
     specs: [
       { label: "Objectives", value: "4x, 10x, 40x, 100x oil" },
       { label: "Illumination", value: "LED with brightness memory" },
@@ -537,7 +537,7 @@ export const products: Product[] = [
     description:
       "Sterile evacuated blood collection tubes with colour-coded caps and consistent draw volumes across EDTA, serum, citrate and fluoride formats for accurate pre-analytical handling.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAeepDyquFcTo5TN9wpiQoP7rlsw7T1wSmkXaZ2LV825JS-L0zqauTG8_2tMfAcWqFR1HtjlbI43s3TC6iZK2sigYMTt9C-YVpn1n53r0_Q5rDF8idloQkOocGIb-A0nD5fsHc__XnD4kx-SBPIgH0yzEt5M3AHo8wPU1hc5GT2qzcaFKs_QKi9E4lRt8BN0koYPAUn-Dt625KqvUIiQPb2W2Q-Stf4bTNHC_jIgDUchqQKiF6eYjb6",
+      "https://emedicalsupplies.ug/wp-content/uploads/2023/03/purple-tops-600x600.png",
     specs: [
       { label: "Formats", value: "K2EDTA, Serum (clot activator), Citrate, Fluoride" },
       { label: "Draw Volumes", value: "2 mL, 4 mL, 6 mL" },
@@ -567,7 +567,7 @@ export const products: Product[] = [
     description:
       "Powder-free, latex-free nitrile examination gloves offering excellent puncture and chemical splash resistance, textured fingertips and a comfortable fit for extended laboratory sessions.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDn6Zki3KDp5U8T4szZR4fj_3cxWp5qWZUDu3zsTMQ7cE7KGdDG9MfRB2Mjjh_TITFtJkzDOscUuM0QhmYi_mXFfLvQdc00JZ1u4wqGm0HRJMKgBlNLNi1MCJBZa83j_9OkNqNI0xbaquYiJc6aJuGKkv21Ba9RJCIcII_N_iWGw2SvT8HDbeQ8PhSrOH_9NiaA1vtu90i0gqVUGYJsh-YXy7aGNrfX-8kPLYYrVKGxZ56x3sxEcEEr",
+      "https://www.officecrave.com/image/cache/data/product_image_large/1030264313-500x500-0.jpg",
     specs: [
       { label: "Material", value: "Nitrile, powder-free, latex-free" },
       { label: "Sizes", value: "S, M, L, XL" },
