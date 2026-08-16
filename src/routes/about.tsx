@@ -1,22 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { Reveal } from "@/components/site/Reveal";
 
 const ABOUT_HERO =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAUR7c5hSkwlOHIOGQXP-SIXMM-JFSpUdKZ4DRwTiJct8idUnpwJw_6216QgCAdQNNgEzlWjVowrescJGJNExhEckps9Il2OAkB6_VylqeymBvkuHLyAVsD3N021URTHRUvZW1Cda4gwVWNKjNAdJau6koRB0SfNAIuoj6N3KYXAfbX1bX9_YNm2MXhhbdzigAobQNx7T3W4GjJOuu6eWEz51618gIiYTD4wrqtvlqWk90_YpnaLj9h";
 
 const values = [
-  { icon: "verified", title: "Quality", body: "Uncompromising standards in every product we deliver." },
+  {
+    icon: "verified",
+    title: "Quality",
+    body: "We adhere to stringent selection criteria for every product, ensuring that instruments meet international performance standards and are accompanied by proper certification, warranties and calibration documentation.",
+  },
   {
     icon: "published_with_changes",
     title: "Reliability",
-    body: "Consistent, timely fulfillment of critical scientific needs.",
+    body: "Timely delivery and consistent stock availability are central to our service. We understand that laboratory delays impact patient care, research timelines and academic schedules.",
   },
-  { icon: "school", title: "Professionalism", body: "Expertise and integrity in all our engagements." },
+  {
+    icon: "school",
+    title: "Professionalism",
+    body: "Our team combines scientific knowledge with commercial integrity, providing honest advice, transparent pricing and clear communication at every stage of the procurement process.",
+  },
   {
     icon: "handshake",
     title: "Customer Focus",
-    body: "Tailored solutions that prioritize institutional success.",
+    body: "We invest in long-term institutional relationships rather than one-off transactions, offering responsive after-sales support, maintenance contracts and re-order priority for returning clients.",
   },
 ];
 
@@ -79,12 +88,19 @@ function About() {
                   LIVAN LAB SUPPLIES UGANDA LIMITED is a premier provider of comprehensive
                   scientific and diagnostic solutions. Operating at the intersection of medical
                   innovation and rigorous quality control, we serve as a vital link between
-                  world-leading manufacturers and the specialized needs of regional institutions.
+                  world-leading manufacturers and the specialised needs of regional institutions.
                 </p>
-                <p className="text-muted-foreground">
+                <p className="mb-6 text-muted-foreground">
                   Our expertise extends beyond simple procurement. We offer technical advisory,
                   robust logistical support, and dedicated after-sales service to ensure that our
                   clients&apos; laboratories operate at peak efficiency and accuracy.
+                </p>
+                <p className="text-muted-foreground">
+                  We work closely with procurement teams, laboratory managers and technical staff to
+                  understand workload patterns, compliance requirements and budget constraints. This
+                  consultative approach allows us to recommend equipment configurations, reagent
+                  schedules and service contracts that maximise uptime and protect institutional
+                  investments over the long term.
                 </p>
               </div>
             </div>
@@ -103,6 +119,81 @@ function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-surface-low py-20">
+          <div className="container-page grid grid-cols-1 gap-8 md:grid-cols-2">
+            <Reveal className="card-surface p-8 md:p-10">
+              <h2 className="mb-3 text-2xl font-bold text-primary md:text-3xl">Our Mission</h2>
+              <div className="mb-6 h-1 w-16 bg-secondary" />
+              <p className="text-muted-foreground">
+                To empower healthcare, research and education across East Africa by delivering
+                reliable, high-precision laboratory and diagnostic solutions with unmatched
+                technical support. We aim to bridge the gap between global scientific innovation and
+                local institutional needs, ensuring that every laboratory we serve has access to
+                equipment, reagents and expertise that meet international standards.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="card-surface p-8 md:p-10">
+              <h2 className="mb-3 text-2xl font-bold text-primary md:text-3xl">Our Vision</h2>
+              <div className="mb-6 h-1 w-16 bg-secondary" />
+              <p className="text-muted-foreground">
+                To be the most trusted partner for scientific and diagnostic procurement in the
+                region, enabling institutions to achieve excellence in testing, diagnosis and
+                discovery. We envision a future where every hospital, research centre and
+                educational institution in East Africa can source laboratory solutions locally with
+                the same confidence as leading international facilities.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="container-page py-20">
+          <Reveal>
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">What We Do</h2>
+              <p className="max-w-3xl text-muted-foreground">
+                We provide end-to-end support for laboratory and diagnostic procurement, from
+                initial consultation through to installation, training and ongoing maintenance.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Equipment Supply",
+                body: "We source and supply certified laboratory and diagnostic instruments from reputable global manufacturers, ensuring genuine products with full manufacturer warranties and local technical support.",
+              },
+              {
+                title: "Technical Consultation",
+                body: "Our specialists assess workload, throughput requirements and compliance obligations to recommend equipment configurations that match each institution&apos;s specific operational profile.",
+              },
+              {
+                title: "Installation & Commissioning",
+                body: "We coordinate on-site installation, calibration and operator training to ensure that new equipment reaches productive use quickly and performs to specification from day one.",
+              },
+              {
+                title: "Maintenance & Servicing",
+                body: "Preventive maintenance programmes, responsive repairs and annual certification services keep laboratory hardware reliable, compliant and within manufacturer specifications.",
+              },
+              {
+                title: "Reagent & Consumable Supply",
+                body: "We manage the continuous supply of reagents, culture media, sample collection systems and disposables, reducing procurement overhead and eliminating stock-out risk.",
+              },
+              {
+                title: "Laboratory Setup Support",
+                body: "For new or expanding facilities, we advise on workflow design, equipment selection, safety requirements and budget phasing to deliver functional, compliant laboratory environments.",
+              },
+            ].map((service) => (
+              <div
+                key={service.title}
+                className="flex flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg"
+              >
+                <h3 className="mb-3 text-base font-semibold text-primary">{service.title}</h3>
+                <p className="text-sm text-muted-foreground">{service.body}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>

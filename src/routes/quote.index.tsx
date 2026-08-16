@@ -155,7 +155,9 @@ function QuotePage() {
                     </div>
                     <span
                       className={
-                        active ? "text-sm font-semibold text-primary" : "text-sm text-muted-foreground"
+                        active
+                          ? "text-sm font-semibold text-primary"
+                          : "text-sm text-muted-foreground"
                       }
                     >
                       {label}
@@ -166,191 +168,212 @@ function QuotePage() {
               })}
             </div>
 
-            <form
-              className="card-surface p-8"
-              onSubmit={onSubmit}
-            >
+            <form className="card-surface p-8" onSubmit={onSubmit}>
               <div className={step === 1 ? "" : "hidden"}>
-                  <h2 className="mb-1 text-xl font-semibold text-primary">Contact Information</h2>
-                  <p className="mb-8 text-sm text-muted-foreground">
-                    Please provide your primary institutional contact details.
-                  </p>
-                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                    <Field name="fullName" label="Full Name" placeholder="Dr. Jane Doe" />
+                <h2 className="mb-1 text-xl font-semibold text-primary">Contact Information</h2>
+                <p className="mb-8 text-sm text-muted-foreground">
+                  Please provide your primary institutional contact details.
+                </p>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <Field name="fullName" label="Full Name" placeholder="Dr. Jane Doe" />
+                  <Field
+                    name="email"
+                    label="Institutional Email"
+                    placeholder="jdoe@institution.ac.ug"
+                    type="email"
+                  />
+                  <Field
+                    name="phone"
+                    label="Phone Number"
+                    placeholder="+256 700 000 000"
+                    type="tel"
+                    required={false}
+                  />
+                  <Field
+                    name="institution"
+                    label="Lab/Institution Name"
+                    placeholder="National Research Facility"
+                  />
+                  <div className="md:col-span-2">
                     <Field
-                      name="email"
-                      label="Institutional Email"
-                      placeholder="jdoe@institution.ac.ug"
-                      type="email"
+                      name="location"
+                      label="Facility Location"
+                      placeholder="City, Country"
+                      required={false}
                     />
-                    <Field name="phone" label="Phone Number" placeholder="+256 700 000 000" type="tel" required={false} />
-                    <Field name="institution" label="Lab/Institution Name" placeholder="National Research Facility" />
-                    <div className="md:col-span-2">
-                      <Field name="location" label="Facility Location" placeholder="City, Country" required={false} />
-                    </div>
-                  </div>
-                  <div className="mt-8 flex justify-end">
-                    <button type="button" className="btn-primary" onClick={() => setStep(2)}>
-                      Next <span className="material-symbols-outlined text-base">arrow_forward</span>
-                    </button>
                   </div>
                 </div>
+                <div className="mt-8 flex justify-end">
+                  <button type="button" className="btn-primary" onClick={() => setStep(2)}>
+                    Next <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
 
               <div className={step === 2 ? "" : "hidden"}>
-                  <h2 className="mb-1 text-xl font-semibold text-primary">Product Selection</h2>
-                  <p className="mb-8 text-sm text-muted-foreground">
-                    Review your selected items and adjust quantities.
-                  </p>
+                <h2 className="mb-1 text-xl font-semibold text-primary">Product Selection</h2>
+                <p className="mb-8 text-sm text-muted-foreground">
+                  Review your selected items and adjust quantities.
+                </p>
 
-                  {!removed && item ? (
-                    <div className="flex flex-col gap-5 rounded-xl border border-border bg-surface-low p-5 md:flex-row">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="h-32 w-full rounded-lg object-cover md:w-40"
-                      />
-                      <div className="flex-grow">
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <span className="eyebrow">{item.category}</span>
-                            <h3 className="text-lg font-semibold text-primary">{item.name}</h3>
-                            <p className="text-xs text-muted-foreground">
-                              SKU: {item.sku} | Base Configuration
-                            </p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => setRemoved(true)}
-                            aria-label="Remove item"
-                            className="text-muted-foreground hover:text-destructive"
-                          >
-                            <span className="material-symbols-outlined">delete</span>
-                          </button>
+                {!removed && item ? (
+                  <div className="flex flex-col gap-5 rounded-xl border border-border bg-surface-low p-5 md:flex-row">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-32 w-full rounded-lg object-cover md:w-40"
+                    />
+                    <div className="flex-grow">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <span className="eyebrow">{item.category}</span>
+                          <h3 className="text-lg font-semibold text-primary">{item.name}</h3>
+                          <p className="text-xs text-muted-foreground">
+                            SKU: {item.sku} | Base Configuration
+                          </p>
                         </div>
-                        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          <div>
-                            <label className="mb-2 block text-xs font-medium text-primary">
-                              Quantity
-                            </label>
-                            <input
-                              type="number"
-                              min={1}
-                              value={quantity}
-                              onChange={(e) => setQuantity(Number(e.target.value))}
-                              className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
-                            />
-                          </div>
-                          <div>
-                            <label className="mb-2 block text-xs font-medium text-primary">
-                              Reagent Starter Kit
-                            </label>
-                            <select name="reagentKit" className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary">
-                              <option>Included</option>
-                              <option>Extended (3mo)</option>
-                              <option>None</option>
-                            </select>
-                          </div>
+                        <button
+                          type="button"
+                          onClick={() => setRemoved(true)}
+                          aria-label="Remove item"
+                          className="text-muted-foreground hover:text-destructive"
+                        >
+                          <span className="material-symbols-outlined">delete</span>
+                        </button>
+                      </div>
+                      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div>
+                          <label className="mb-2 block text-xs font-medium text-primary">
+                            Quantity
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            value={quantity}
+                            onChange={(e) => setQuantity(Number(e.target.value))}
+                            className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
+                          />
+                        </div>
+                        <div>
+                          <label className="mb-2 block text-xs font-medium text-primary">
+                            Reagent Starter Kit
+                          </label>
+                          <select
+                            name="reagentKit"
+                            className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
+                          >
+                            <option>Included</option>
+                            <option>Extended (3mo)</option>
+                            <option>None</option>
+                          </select>
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <p className="rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
-                      No items selected yet. Add products from the catalog.
-                    </p>
-                  )}
-
-                  <div className="mt-5">
-                    <label className="mb-2 block text-xs font-medium text-primary">
-                      Add another item from the catalog
-                    </label>
-                    <select
-                      className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
-                      value={item?.slug ?? ""}
-                      onChange={(e) => {
-                        setItem(getProduct(e.target.value));
-                        setRemoved(false);
-                      }}
-                    >
-                      {products.map((p) => (
-                        <option key={p.slug} value={p.slug}>
-                          {p.name}
-                        </option>
-                      ))}
-                    </select>
                   </div>
+                ) : (
+                  <p className="rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
+                    No items selected yet. Add products from the catalog.
+                  </p>
+                )}
 
-                  <div className="mt-8 flex justify-between">
-                    <button type="button" className="btn-outline" onClick={() => setStep(1)}>
-                      <span className="material-symbols-outlined text-base">arrow_back</span> Back
-                    </button>
-                    <button type="button" className="btn-primary" onClick={() => setStep(3)}>
-                      Next <span className="material-symbols-outlined text-base">arrow_forward</span>
-                    </button>
-                  </div>
+                <div className="mt-5">
+                  <label className="mb-2 block text-xs font-medium text-primary">
+                    Add another item from the catalog
+                  </label>
+                  <select
+                    className="h-11 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
+                    value={item?.slug ?? ""}
+                    onChange={(e) => {
+                      setItem(getProduct(e.target.value));
+                      setRemoved(false);
+                    }}
+                  >
+                    {products.map((p) => (
+                      <option key={p.slug} value={p.slug}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+
+                <div className="mt-8 flex justify-between">
+                  <button type="button" className="btn-outline" onClick={() => setStep(1)}>
+                    <span className="material-symbols-outlined text-base">arrow_back</span> Back
+                  </button>
+                  <button type="button" className="btn-primary" onClick={() => setStep(3)}>
+                    Next <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
 
               <div className={step === 3 ? "" : "hidden"}>
-                  <h2 className="mb-1 text-xl font-semibold text-primary">Procurement Details</h2>
-                  <p className="mb-8 text-sm text-muted-foreground">
-                    Help us understand your timeline and specific requirements.
-                  </p>
-                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                    <div>
-                      <label className="mb-2 block text-sm font-medium text-primary">
-                        Estimated Annual Volume (Tests)
-                      </label>
-                      <select name="annualVolume" className="h-12 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary">
-                        <option>&lt; 10,000</option>
-                        <option>10,000 - 50,000</option>
-                        <option>50,000 - 100,000</option>
-                        <option>&gt; 100,000</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="mb-2 block text-sm font-medium text-primary">
-                        Required Delivery Timeline
-                      </label>
-                      <select name="timeline" className="h-12 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary">
-                        <option>Immediate (1-2 weeks)</option>
-                        <option>Standard (3-4 weeks)</option>
-                        <option>Future Project Q3</option>
-                        <option>Future Project Q4</option>
-                      </select>
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="mb-2 block text-sm font-medium text-primary">
-                        Technical Requirements &amp; Notes
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Please detail any specific LIS integration needs, power requirements, or installation constraints..."
-                        className="w-full rounded-lg border border-input bg-surface px-4 py-3 text-sm outline-none focus:border-secondary"
-                      />
-                    </div>
+                <h2 className="mb-1 text-xl font-semibold text-primary">Procurement Details</h2>
+                <p className="mb-8 text-sm text-muted-foreground">
+                  Help us understand your timeline and specific requirements.
+                </p>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-primary">
+                      Estimated Annual Volume (Tests)
+                    </label>
+                    <select
+                      name="annualVolume"
+                      className="h-12 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
+                    >
+                      <option>&lt; 10,000</option>
+                      <option>10,000 - 50,000</option>
+                      <option>50,000 - 100,000</option>
+                      <option>&gt; 100,000</option>
+                    </select>
                   </div>
-
-                  <div className="mt-6 flex items-start gap-3 rounded-lg bg-surface-low p-4">
-                    <span className="material-symbols-outlined text-secondary">info</span>
-                    <p className="text-xs text-muted-foreground">
-                      By submitting this request, a LIVAN specialist will contact you within 24
-                      hours to discuss your configuration and provide a detailed quotation including
-                      logistics and installation.
-                    </p>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-primary">
+                      Required Delivery Timeline
+                    </label>
+                    <select
+                      name="timeline"
+                      className="h-12 w-full rounded-lg border border-input bg-surface px-3 text-sm outline-none focus:border-secondary"
+                    >
+                      <option>Immediate (1-2 weeks)</option>
+                      <option>Standard (3-4 weeks)</option>
+                      <option>Future Project Q3</option>
+                      <option>Future Project Q4</option>
+                    </select>
                   </div>
-
-                  <div className="mt-8 flex justify-between">
-                    <button type="button" className="btn-outline" onClick={() => setStep(2)}>
-                      <span className="material-symbols-outlined text-base">arrow_back</span> Back
-                    </button>
-                    <button type="submit" className="btn-primary" disabled={sending}>
-                      {sending ? "Submitting..." : "Submit Request"}
-                      <span className="material-symbols-outlined text-base">
-                        {sending ? "progress_activity" : "send"}
-                      </span>
-                    </button>
+                  <div className="md:col-span-2">
+                    <label className="mb-2 block text-sm font-medium text-primary">
+                      Technical Requirements &amp; Notes
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      placeholder="Please detail any specific LIS integration needs, power requirements, or installation constraints..."
+                      className="w-full rounded-lg border border-input bg-surface px-4 py-3 text-sm outline-none focus:border-secondary"
+                    />
                   </div>
                 </div>
+
+                <div className="mt-6 flex items-start gap-3 rounded-lg bg-surface-low p-4">
+                  <span className="material-symbols-outlined text-secondary">info</span>
+                  <p className="text-xs text-muted-foreground">
+                    By submitting this request, a LIVAN specialist will contact you within 24 hours
+                    to discuss your configuration and provide a detailed quotation including
+                    logistics and installation.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex justify-between">
+                  <button type="button" className="btn-outline" onClick={() => setStep(2)}>
+                    <span className="material-symbols-outlined text-base">arrow_back</span> Back
+                  </button>
+                  <button type="submit" className="btn-primary" disabled={sending}>
+                    {sending ? "Submitting..." : "Submit Request"}
+                    <span className="material-symbols-outlined text-base">
+                      {sending ? "progress_activity" : "send"}
+                    </span>
+                  </button>
+                </div>
+              </div>
             </form>
 
             <p className="mt-6 text-center text-xs text-muted-foreground">

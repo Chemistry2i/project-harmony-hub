@@ -14,7 +14,6 @@ Build this app using the HTML files referenced below. You can hotlink the images
 10. https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1OTFhOTlkZjhlN2EwNWYxMzQ5MzZhMDcyMDE1EgsSBxCvx5nm8Q0YAZIBIwoKcHJvamVjdF9pZBIVQhM1MDA5NDQ0MzI3NDAwMDYzNjcw&filename=&opi=89354086
 11. https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1OTFhYTY0NDMxZDUwNDVhZDUzY2Y0MjlkMGUyEgsSBxCvx5nm8Q0YAZIBIwoKcHJvamVjdF9pZBIVQhM1MDA5NDQ0MzI3NDAwMDYzNjcw&filename=&opi=89354086
 
-
 On our navigation use this as the Logo replcing with the name okay
 
 This project was built with [Lovable](https://lovable.dev).

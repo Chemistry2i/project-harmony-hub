@@ -72,7 +72,10 @@ export const submitLead = createServerFn({ method: "POST" })
       `Location: ${data.location ?? "-"}`,
       data.items.length
         ? `Items:\n${data.items
-            .map((i) => ` - ${i.name} (${i.sku}) x${i.quantity}${i.reagentKit ? ` | reagent kit: ${i.reagentKit}` : ""}`)
+            .map(
+              (i) =>
+                ` - ${i.name} (${i.sku}) x${i.quantity}${i.reagentKit ? ` | reagent kit: ${i.reagentKit}` : ""}`,
+            )
             .join("\n")}`
         : "Items: -",
       `Annual volume: ${data.annualVolume ?? "-"}`,

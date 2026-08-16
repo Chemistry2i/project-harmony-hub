@@ -78,14 +78,19 @@ export const Route = createFileRoute("/products/$slug")({
 
 function ProductDetail() {
   const { product } = Route.useLoaderData();
-  const related = products.filter((p) => p.slug !== product.slug && p.group === product.group).slice(0, 3);
+  const related = products
+    .filter((p) => p.slug !== product.slug && p.group === product.group)
+    .slice(0, 3);
 
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-grow pt-20">
         <div className="container-page py-8">
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-8 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+          >
             <Link to="/" className="hover:text-secondary">
               Home
             </Link>
@@ -121,7 +126,6 @@ function ProductDetail() {
               <p className="text-muted-foreground">{product.description}</p>
               <dl className="grid grid-cols-1 gap-4 rounded-xl border border-border bg-surface-low p-5 sm:grid-cols-2">
                 {[
-                  { label: "Indicative price", value: product.priceRange },
                   { label: "Availability", value: product.availability },
                   { label: "Lead time", value: product.leadTime },
                   { label: "Warranty", value: product.warranty },

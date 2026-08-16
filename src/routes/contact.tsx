@@ -87,6 +87,12 @@ function Contact() {
             {[
               { icon: "mail", label: "Email", value: "info@livanlabsupplies.co.ug" },
               { icon: "call", label: "Phone", value: "+256 700 000 000" },
+              {
+                icon: "chat",
+                label: "WhatsApp",
+                value: "+256 700 000 000",
+                href: "https://wa.me/256700000000",
+              },
               { icon: "location_on", label: "Office", value: "Kampala, Uganda" },
               { icon: "schedule", label: "Hours", value: "Mon – Fri, 8:00 – 17:00 EAT" },
             ].map((c, i) => (
@@ -95,7 +101,18 @@ function Contact() {
                   <span className="material-symbols-outlined filled text-secondary">{c.icon}</span>
                   <div>
                     <p className="eyebrow mb-1">{c.label}</p>
-                    <p className="text-sm font-medium text-primary">{c.value}</p>
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-secondary hover:underline"
+                      >
+                        {c.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-primary">{c.value}</p>
+                    )}
                   </div>
                 </div>
               </Reveal>
@@ -152,6 +169,22 @@ function Contact() {
               </Link>
             </div>
           </form>
+        </section>
+
+        <section className="container-page pb-20">
+          <div className="card-surface overflow-hidden">
+            <iframe
+              title="Livan Lab Supplies Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.755043393518!2d32.5825!3d0.3476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0e0e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1690000000000"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg"
+            />
+          </div>
         </section>
       </main>
       <SiteFooter />

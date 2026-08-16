@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import logo from "@/assets/livan-logo.png.asset.json";
 import { ProductSearch } from "@/components/site/ProductSearch";
 
 const links = [
@@ -8,6 +7,7 @@ const links = [
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
   { to: "/services", label: "Services" },
+  { to: "/industries", label: "Industries" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -19,7 +19,7 @@ export function SiteHeader() {
       <div className="container-page flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-3" aria-label="Livan Lab Supplies home">
           <img
-            src={logo.url}
+            src="/livan-logo.png"
             alt="Livan Lab Supplies Uganda Limited"
             className="h-14 w-auto object-contain"
           />
@@ -32,7 +32,9 @@ export function SiteHeader() {
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-secondary"
-              activeProps={{ className: "text-secondary font-semibold border-b-2 border-secondary pb-1" }}
+              activeProps={{
+                className: "text-secondary font-semibold border-b-2 border-secondary pb-1",
+              }}
             >
               {l.label}
             </Link>
@@ -49,11 +51,11 @@ export function SiteHeader() {
         <div className="flex items-center gap-1 md:hidden">
           <ProductSearch className="p-2 text-primary" />
           <button
-          className="p-2 text-primary"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle navigation"
-        >
-          <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
+            className="p-2 text-primary"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle navigation"
+          >
+            <span className="material-symbols-outlined">{open ? "close" : "menu"}</span>
           </button>
         </div>
       </div>

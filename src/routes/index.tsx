@@ -2,38 +2,162 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
+import { BrandMarquee } from "@/components/site/BrandMarquee";
+import { IndustriesMarquee } from "@/components/site/IndustriesMarquee";
+import { TestimonialsMarquee } from "@/components/site/TestimonialsMarquee";
+import { WaveDivider } from "@/components/site/WaveDivider";
 import { motion } from "framer-motion";
-import { products } from "@/data/products";
+import { products, productGroups, brands } from "@/data/products";
 import { Reveal } from "@/components/site/Reveal";
 
 const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCtuq825gqTEGjMnxtePYBBDloBfw5V4aj17x_dwWJ1-2QUlTpcMmBUjF4lcK4Bv8fhypbF1aPADct0JkcO39mBW5vFtVUCtG36954CMxGfqR4xKt5jk7dNeZ8o9fIUr-Z-gTqm862ExKaOIWYzs5330EOTUbnONhYFxPf-zC8jhQrO-uypie9gUf504Kenz1LcGJGJ3TNnq2Zm7p7krcNhOakTRKny-qkF_yhg1C3l6vMTo7q8BaHn";
 
-const services = [
+const productCategories = [
+  {
+    name: "Laboratory Equipment",
+    icon: "science",
+    to: "/products",
+    description:
+      "Precision instruments including microscopes, centrifuges, incubators, balances and analytical equipment from leading global manufacturers.",
+  },
+  {
+    name: "Diagnostic Equipment",
+    icon: "biotech",
+    to: "/products",
+    description:
+      "Clinical chemistry analyzers, hematology systems, immunoassay platforms, molecular diagnostics and point-of-care testing devices.",
+  },
+  {
+    name: "Laboratory Apparatus",
+    icon: "water_drop",
+    to: "/products",
+    description:
+      "Borosilicate glassware, pipettes, safety cabinets, fume hoods and essential laboratory apparatus for daily workflows.",
+  },
+  {
+    name: "Lab Consumables",
+    icon: "inventory_2",
+    to: "/products",
+    description:
+      "Sample collection systems, nitrile gloves, filter tips, culture media and other high-quality laboratory disposables.",
+  },
+  {
+    name: "Chemicals & Reagents",
+    icon: "science",
+    to: "/products",
+    description:
+      "Analytical reagents, buffer solutions, stains and quality-control materials sourced from certified manufacturers.",
+  },
+];
+
+const industries = [
+  {
+    icon: "local_hospital",
+    title: "Hospitals & Healthcare Facilities",
+    description:
+      "We supply diagnostic analyzers, haematology systems, chemistry reagents and consumables to support clinical laboratories delivering patient-centred care across Uganda.",
+  },
+  {
+    icon: "biotech",
+    title: "Medical Laboratories",
+    description:
+      "From routine pathology to specialised diagnostics, we equip private and public medical laboratories with reliable instruments and ongoing technical support.",
+  },
+  {
+    icon: "microscope",
+    title: "Research Institutions",
+    description:
+      "We provide advanced analytical balances, precision microscopes, molecular diagnostics and scientific apparatus for cutting-edge research programmes.",
+  },
+  {
+    icon: "school",
+    title: "Universities & Colleges",
+    description:
+      "Supporting teaching laboratories with durable student microscopes, clinical centrifuges, glassware sets and practical training kits aligned to curricula.",
+  },
+  {
+    icon: "menu_book",
+    title: "Schools",
+    description:
+      "Supplying secondary and A-Level science laboratories with robust, budget-friendly equipment designed for heavy classroom use and curriculum requirements.",
+  },
+  {
+    icon: "precision_manufacturing",
+    title: "Industrial Laboratories",
+    description:
+      "Delivering heavy-duty testing equipment, quality-control instrumentation and calibration tools for manufacturing, food processing and mining sectors.",
+  },
+  {
+    icon: "eco",
+    title: "Agricultural & Environmental Labs",
+    description:
+      "Providing soil-testing kits, water-analysis equipment, environmental monitoring instruments and field-ready diagnostics for agri-research organisations.",
+  },
   {
     icon: "science",
-    title: "Laboratory Equipment Supply",
-    body: "Sourcing high-quality instruments from world-leading manufacturers.",
+    title: "Diagnostic & Scientific Organisations",
+    description:
+      "Partnering with national health programmes, research networks and specialised diagnostic centres for molecular testing, immunoassay and pathology solutions.",
+  },
+];
+
+const whyLivan = [
+  {
+    icon: "verified",
+    title: "Quality",
+    body: "Every product we supply is sourced from certified manufacturers and meets rigorous international standards for accuracy, durability and safety in laboratory environments.",
   },
   {
-    icon: "settings_suggest",
-    title: "Equipment Installation",
-    body: "Professional setup and configuration of diagnostic and scientific apparatus.",
+    icon: "schedule",
+    title: "Reliable Supply",
+    body: "We maintain strategic stock of high-demand instruments and consumables, backed by dependable logistics to ensure your laboratory never faces unnecessary downtime.",
   },
   {
-    icon: "build",
-    title: "Maintenance & Servicing",
-    body: "Scheduled preventative maintenance and technical support to ensure minimal downtime.",
+    icon: "support_agent",
+    title: "Professional Support",
+    body: "Our technical team provides installation guidance, preventive maintenance planning and troubleshooting support to keep your equipment performing at specification.",
   },
   {
-    icon: "architecture",
-    title: "Laboratory Setup Support",
-    body: "Expert guidance on design, workflow, and equipment selection for new or expanding labs.",
+    icon: "category",
+    title: "Wide Product Range",
+    body: "From analytical balances to molecular diagnostics, glassware to reagents, we offer a comprehensive catalogue so institutions can source from a single trusted partner.",
   },
   {
-    icon: "search",
-    title: "Product Sourcing",
-    body: "Dedicated support for finding specialized scientific instruments and consumables.",
+    icon: "handshake",
+    title: "Customer Focus",
+    body: "We build long-term relationships with clients, offering responsive communication, transparent quotations and after-sales service from enquiry through delivery and beyond.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Livan has been our primary laboratory supplier for three years. Their technical team understands the demands of a busy clinical laboratory and consistently delivers quality instruments on time.",
+    name: "Dr. Sarah Nakamya",
+    role: "Head of Laboratory",
+    institution: "Kampala International Hospital",
+  },
+  {
+    quote:
+      "The GeneXpert IV system was delivered, installed and commissioned within two weeks. The training provided by Livan engineers ensured our team were confident operators from day one.",
+    name: "Mr. James Ochieng",
+    role: "Laboratory Manager",
+    institution: "Infectious Diseases Institute",
+  },
+  {
+    quote:
+      "As a teaching institution, we need durable equipment that can withstand heavy student use. Livan's student microscopes and centrifuges have performed exceptionally well across multiple cohorts.",
+    name: "Dr. Mary Katusiime",
+    role: "Dean, School of Biomedical Sciences",
+    institution: "Mbarara University of Science and Technology",
+  },
+  {
+    quote:
+      "Their reagent supply reliability has transformed our inventory management. No more stock-outs disrupting testing schedules, and their pricing is competitive for the quality we receive.",
+    name: "Ms. Patricia Atim",
+    role: "Chief Laboratory Technologist",
+    institution: "Mulago National Referral Hospital",
   },
 ];
 
@@ -70,13 +194,22 @@ function Index() {
       <SiteHeader />
       <main className="flex-grow pt-20">
         <section className="relative flex min-h-[88vh] items-center overflow-hidden bg-surface">
+          <div className="absolute inset-0">
+            <img
+              src={HERO_IMAGE}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover opacity-[0.18]"
+            />
+          </div>
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
               backgroundSize: "24px 24px",
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-secondary/15" />
           <div className="container-page relative z-10 w-full">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
               <motion.div
@@ -155,14 +288,128 @@ function Index() {
             </div>
           </div>
         </section>
+        <WaveDivider />
 
         <section className="bg-surface py-20">
           <Reveal className="container-page">
             <div className="mb-12 flex flex-col items-center text-center">
-              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Featured Products</h2>
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Who We Are</h2>
+              <p className="max-w-3xl text-muted-foreground">
+                LIVAN LAB SUPPLIES UGANDA LIMITED is a premier provider of comprehensive scientific
+                and diagnostic solutions. Operating at the intersection of medical innovation and
+                rigorous quality control, we serve as a vital link between world-leading
+                manufacturers and the specialised needs of regional institutions across Uganda and
+                East Africa.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <div className="card-surface flex flex-col justify-between p-8 transition-shadow duration-300 hover:shadow-lg md:col-span-2 md:p-10">
+                <div>
+                  <h3 className="mb-4 text-xl font-bold text-primary">
+                    Specialist in Laboratory & Diagnostic Solutions
+                  </h3>
+                  <div className="mb-8 h-1 w-16 bg-secondary" />
+                  <p className="mb-6 text-muted-foreground">
+                    Our expertise extends beyond simple procurement. We offer technical advisory,
+                    robust logistical support, and dedicated after-sales service to ensure that our
+                    clients&apos; laboratories operate at peak efficiency and accuracy. From
+                    teaching institutions to national reference hospitals, we understand the
+                    demanding requirements of modern scientific environments and deliver solutions
+                    that meet international standards.
+                  </p>
+                  <p className="text-muted-foreground">
+                    We work closely with procurement teams, laboratory managers and technical staff
+                    to understand workload patterns, compliance requirements and budget constraints.
+                    This consultative approach allows us to recommend equipment configurations,
+                    reagent schedules and service contracts that maximise uptime and protect
+                    institutional investments over the long term.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-low p-5">
+                  <span className="material-symbols-outlined filled text-secondary">groups</span>
+                  <div>
+                    <h4 className="mb-1 text-sm font-bold text-primary">Customers We Serve</h4>
+                    <p className="text-xs text-muted-foreground">
+                      Hospitals, research institutes, universities, schools, industrial labs and
+                      agricultural facilities across Uganda and the wider East African region.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-low p-5">
+                  <span className="material-symbols-outlined filled text-secondary">shield</span>
+                  <div>
+                    <h4 className="mb-1 text-sm font-bold text-primary">Quality Commitment</h4>
+                    <p className="text-xs text-muted-foreground">
+                      Every product is validated against manufacturer specifications and accompanied
+                      by proper documentation, warranties and calibration certificates where
+                      required.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-low p-5">
+                  <span className="material-symbols-outlined filled text-secondary">
+                    engineering
+                  </span>
+                  <div>
+                    <h4 className="mb-1 text-sm font-bold text-primary">Technical Expertise</h4>
+                    <p className="text-xs text-muted-foreground">
+                      Our team includes specialists with hands-on laboratory experience, enabling
+                      informed recommendations rather than generic catalogue selling.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        <section className="border-y border-border bg-surface-low py-20">
+          <Reveal className="container-page">
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                Our Product Categories
+              </h2>
               <p className="max-w-2xl text-muted-foreground">
-                Discover our range of high-precision laboratory and diagnostic equipment from
-                world-leading manufacturers.
+                We maintain a comprehensive inventory organised into five core categories, ensuring
+                that institutions can source the full spectrum of laboratory requirements from a
+                single partner.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {productCategories.map((cat) => (
+                <Link
+                  key={cat.name}
+                  to={cat.to}
+                  className="group flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-8 text-center transition-all duration-300 hover:shadow-lg hover:border-secondary"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-secondary/10 transition-colors group-hover:bg-secondary">
+                    <span className="material-symbols-outlined text-3xl text-secondary group-hover:text-secondary-foreground">
+                      {cat.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-semibold text-primary">{cat.name}</h3>
+                  <p className="text-sm text-muted-foreground">{cat.description}</p>
+                  <span className="btn-outline mt-2 w-full text-xs">View Products</span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+        <WaveDivider />
+
+        <section className="bg-surface py-20">
+          <Reveal className="container-page">
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                Featured Products
+              </h2>
+              <p className="max-w-2xl text-muted-foreground">
+                A selection of certified instruments from world-leading manufacturers, trusted by
+                laboratories across Uganda and East Africa for precision, reliability and
+                after-sales support.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -178,41 +425,111 @@ function Index() {
             </div>
           </Reveal>
         </section>
+        <WaveDivider />
 
         <section className="border-y border-border bg-surface-low py-20">
           <Reveal className="container-page">
             <div className="mb-12 flex flex-col items-center text-center">
               <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
-                Our Professional Services
+                Industries We Serve
               </h2>
-              <p className="max-w-3xl text-muted-foreground">
-                Beyond supplying equipment, we provide comprehensive technical support and
-                consultation to ensure your laboratory operations are efficient, compliant, and
-                reliable.
+              <p className="max-w-2xl text-muted-foreground">
+                We partner with institutions across multiple sectors, delivering tailored laboratory
+                and diagnostic solutions that address the specific operational, regulatory and
+                budgetary realities of each industry.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {services.map((s) => (
+            <IndustriesMarquee />
+          </Reveal>
+        </section>
+
+        <section className="bg-surface py-20">
+          <Reveal className="container-page">
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Why Choose LIVAN</h2>
+              <p className="max-w-2xl text-muted-foreground">
+                We have built our reputation on consistent delivery, technical competence and
+                genuine partnership with the institutions we serve. Here is what sets us apart.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
+              {whyLivan.map((item) => (
                 <div
-                  key={s.title}
-                  className="group flex flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg"
+                  key={item.title}
+                  className="flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-6 text-center transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-secondary/10 transition-colors group-hover:bg-secondary">
-                    <span className="material-symbols-outlined text-3xl text-secondary group-hover:text-secondary-foreground">
-                      {s.icon}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10">
+                    <span className="material-symbols-outlined text-2xl text-secondary">
+                      {item.icon}
                     </span>
                   </div>
-                  <h3 className="mb-3 text-lg font-semibold text-primary">{s.title}</h3>
-                  <p className="mb-6 flex-grow text-sm text-muted-foreground">{s.body}</p>
-                  <Link
-                    to="/contact"
-                    className="mt-auto inline-flex items-center text-sm font-semibold text-secondary hover:text-primary"
-                  >
-                    Inquire
-                    <span className="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+                  <h3 className="text-base font-semibold text-primary">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.body}</p>
+                  <Link to="/contact" className="btn-outline mt-auto w-full text-xs">
+                    Talk to Us
                   </Link>
                 </div>
               ))}
+            </div>
+          </Reveal>
+        </section>
+        <WaveDivider />
+
+        <section className="border-y border-border bg-surface-low py-20">
+          <Reveal className="container-page">
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                Brands & Partners
+              </h2>
+              <p className="max-w-2xl text-muted-foreground">
+                We represent and distribute an expanding portfolio of internationally recognised
+                manufacturers, ensuring that every quotation reflects genuine stock, manufacturer
+                warranties and in-country technical support.
+              </p>
+            </div>
+            <BrandMarquee brands={brands} />
+          </Reveal>
+        </section>
+        <WaveDivider />
+
+        <section className="bg-surface py-20">
+          <Reveal className="container-page">
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                What Our Clients Say
+              </h2>
+              <p className="max-w-2xl text-muted-foreground">
+                Trusted by leading hospitals, research institutions and universities across Uganda
+                and East Africa.
+              </p>
+            </div>
+            <TestimonialsMarquee />
+          </Reveal>
+        </section>
+        <WaveDivider />
+
+        <section className="bg-surface py-20">
+          <Reveal className="container-page">
+            <div className="flex flex-col items-center gap-6 rounded-2xl bg-primary p-12 text-center">
+              <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">
+                Ready to request a quote?
+              </h2>
+              <p className="max-w-2xl text-primary-foreground/75">
+                Tell us what you need and a Livan specialist will respond within 24 hours with a
+                tailored quotation.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link to="/quote" className="btn-primary">
+                  Request a Quote
+                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                </Link>
+                <Link
+                  to="/contact"
+                  className="btn-outline border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </Reveal>
         </section>

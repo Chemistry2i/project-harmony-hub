@@ -8,7 +8,10 @@ export const Route = createFileRoute("/sitemap.xml")({
         const origin = new URL(request.url).origin;
         const staticPaths = ["/", "/about", "/products", "/services", "/contact", "/quote"];
         const urls = [
-          ...staticPaths.map((p) => ({ loc: `${origin}${p}`, priority: p === "/" ? "1.0" : "0.8" })),
+          ...staticPaths.map((p) => ({
+            loc: `${origin}${p}`,
+            priority: p === "/" ? "1.0" : "0.8",
+          })),
           ...products.map((p) => ({
             loc: `${origin}/products/${p.slug}`,
             priority: "0.7",

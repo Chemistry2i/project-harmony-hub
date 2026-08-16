@@ -2,7 +2,12 @@ export type Product = {
   slug: string;
   name: string;
   category: string;
-  group: "Laboratory Equipment" | "Diagnostic Equipment" | "Apparatus & Consumables";
+  group:
+    | "Laboratory Equipment"
+    | "Diagnostic Equipment"
+    | "Laboratory Apparatus"
+    | "Laboratory Chemicals & Reagents"
+    | "Lab Consumables";
   sku: string;
   brand: string;
   badge?: string;
@@ -244,7 +249,7 @@ export const products: Product[] = [
     slug: "pyrex-erlenmeyer-flask-set",
     name: "Pyrex Erlenmeyer Flask Set",
     category: "Glassware",
-    group: "Apparatus & Consumables",
+    group: "Laboratory Apparatus",
     sku: "PYX-ERL-SET",
     brand: "Pyrex",
     priceRange: "UGX 480,000 per set",
@@ -275,7 +280,7 @@ export const products: Product[] = [
     slug: "thermo-scientific-pipette-kit",
     name: "Thermo Scientific Pipette Kit",
     category: "Liquid Handling",
-    group: "Apparatus & Consumables",
+    group: "Laboratory Apparatus",
     sku: "THM-PIP-KIT",
     brand: "Thermo Scientific",
     priceRange: "UGX 3,150,000 per kit",
@@ -520,7 +525,7 @@ export const products: Product[] = [
     slug: "bd-vacutainer-blood-collection-tubes",
     name: "BD Vacutainer Blood Collection Tubes",
     category: "Consumables",
-    group: "Apparatus & Consumables",
+    group: "Lab Consumables",
     sku: "BD-VAC-EDTA-100",
     brand: "BD",
     priceRange: "UGX 190,000 per pack of 100",
@@ -550,7 +555,7 @@ export const products: Product[] = [
     slug: "nitrile-examination-gloves",
     name: "Nitrile Examination Gloves (Powder-Free)",
     category: "Consumables",
-    group: "Apparatus & Consumables",
+    group: "Lab Consumables",
     sku: "LIV-GLV-NTR-100",
     brand: "Medline",
     priceRange: "UGX 78,000 per box of 100",
@@ -581,7 +586,9 @@ export const products: Product[] = [
 export const productGroups = [
   "Laboratory Equipment",
   "Diagnostic Equipment",
-  "Apparatus & Consumables",
+  "Laboratory Apparatus",
+  "Laboratory Chemicals & Reagents",
+  "Lab Consumables",
 ] as const;
 
 export const categories = [

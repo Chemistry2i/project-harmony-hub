@@ -25,8 +25,16 @@ export const Route = createFileRoute("/quote/submitted")({
 
 const steps = [
   { n: 1, title: "Technical Review", body: "Our specialists verify configuration compatibility." },
-  { n: 2, title: "Customized Quote", body: "We will prepare a detailed pricing proposal within 24 hours." },
-  { n: 3, title: "Consultation", body: "Optionally schedule a call to finalize details and logistics." },
+  {
+    n: 2,
+    title: "Customized Quote",
+    body: "We will prepare a detailed pricing proposal within 24 hours.",
+  },
+  {
+    n: 3,
+    title: "Consultation",
+    body: "Optionally schedule a call to finalize details and logistics.",
+  },
 ];
 
 function Submitted() {
