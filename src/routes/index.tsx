@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { products, productGroups, brands } from "@/data/products";
 import { Reveal } from "@/components/site/Reveal";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=1920&q=80";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1920&q=80";
 
 const HERO_BACKDROP =
   "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80";
