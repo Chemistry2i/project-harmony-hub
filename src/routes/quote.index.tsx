@@ -1,8 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { toast } from "sonner";
-import { submitLead } from "@/lib/leads.functions";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { getProduct, products } from "@/data/products";
@@ -44,49 +41,47 @@ function QuotePage() {
   const [item, setItem] = useState(selected ?? products[4]);
   const [quantity, setQuantity] = useState(1);
   const [removed, setRemoved] = useState(false);
-  const [sending, setSending] = useState(false);
-  const send = useServerFn(submitLead);
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const buildMailto = () => {
+    const form = document.getElementById("quote-form") as HTMLFormElement | null;
+    if (!form) return;
+    const fd = new FormData(form);
+    const fullName = String(fd.get("fullName") ?? "");
+    const email = String(fd.get("email") ?? "");
+    const phone = String(fd.get("phone") ?? "");
+    const institution = String(fd.get("institution") ?? "");
+    const location = String(fd.get("location") ?? "");
+    const message = String(fd.get("message") ?? "");
+    const annualVolume = String(fd.get("annualVolume") ?? "");
+    const timeline = String(fd.get("timeline") ?? "");
+    const reagentKit = String(fd.get("reagentKit") ?? "Included");
+
+    const items = !removed && item
+      ? `${item.name} (${item.sku}) x${Math.max(1, quantity)} | reagent kit: ${reagentKit}`
+      : "None";
+
+    const body = [
+      "New quotation request from website:",
+      `Name: ${fullName}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "-"}`,
+      `Institution: ${institution || "-"}`,
+      `Location: ${location || "-"}`,
+      `Annual Volume: ${annualVolume || "-"}`,
+      `Timeline: ${timeline || "-"}`,
+      `Message: ${message || "-"}`,
+      `Items: ${items}`,
+    ].join("\n");
+
+    const subject = `Quotation Request ${institution ? `- ${institution}` : ""}`.trim();
+    const mailto = `mailto:elizabethnalweyiso2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailto, "_blank");
+    navigate({ to: "/quote/submitted" });
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    setSending(true);
-    try {
-      const res = await send({
-        data: {
-          type: "quote" as const,
-          fullName: String(fd.get("fullName") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          institution: String(fd.get("institution") ?? ""),
-          location: String(fd.get("location") ?? ""),
-          message: String(fd.get("message") ?? ""),
-          annualVolume: String(fd.get("annualVolume") ?? ""),
-          timeline: String(fd.get("timeline") ?? ""),
-          items:
-            !removed && item
-              ? [
-                  {
-                    name: item.name,
-                    sku: item.sku,
-                    quantity: Math.max(1, quantity),
-                    reagentKit: String(fd.get("reagentKit") ?? "Included"),
-                  },
-                ]
-              : [],
-        },
-      });
-      toast.success("Quotation request submitted", {
-        description: `Reference ${res.reference}. Our team has been notified.`,
-      });
-      navigate({ to: "/quote/submitted", search: { ref: res.reference } });
-    } catch (err) {
-      toast.error("Submission failed", {
-        description: err instanceof Error ? err.message : "Please try again in a moment.",
-      });
-    } finally {
-      setSending(false);
-    }
+    buildMailto();
   };
 
   return (
@@ -168,7 +163,7 @@ function QuotePage() {
               })}
             </div>
 
-            <form className="card-surface p-8" onSubmit={onSubmit}>
+            <form id="quote-form" className="card-surface p-8" onSubmit={onSubmit}>
               <div className={step === 1 ? "" : "hidden"}>
                 <h2 className="mb-1 text-xl font-semibold text-primary">Contact Information</h2>
                 <p className="mb-8 text-sm text-muted-foreground">
@@ -366,11 +361,9 @@ function QuotePage() {
                   <button type="button" className="btn-outline" onClick={() => setStep(2)}>
                     <span className="material-symbols-outlined text-base">arrow_back</span> Back
                   </button>
-                  <button type="submit" className="btn-primary" disabled={sending}>
-                    {sending ? "Submitting..." : "Submit Request"}
-                    <span className="material-symbols-outlined text-base">
-                      {sending ? "progress_activity" : "send"}
-                    </span>
+                  <button type="submit" className="btn-primary">
+                    Submit Request
+                    <span className="material-symbols-outlined text-base">send</span>
                   </button>
                 </div>
               </div>

@@ -1,11 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { toast } from "sonner";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
-import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -30,39 +27,32 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const send = useServerFn(submitLead);
-  const [sending, setSending] = useState(false);
   const [reference, setReference] = useState<string | null>(null);
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
-    setSending(true);
-    try {
-      const res = await send({
-        data: {
-          type: "contact" as const,
-          fullName: String(fd.get("fullName") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          institution: String(fd.get("institution") ?? ""),
-          message: String(fd.get("message") ?? ""),
-          items: [],
-        },
-      });
-      setReference(res.reference);
-      toast.success("Message received", {
-        description: `Our team has been notified. Reference ${res.reference}.`,
-      });
-      form.reset();
-    } catch (err) {
-      toast.error("We could not send your message", {
-        description: err instanceof Error ? err.message : "Please try again or call our office.",
-      });
-    } finally {
-      setSending(false);
-    }
+    const fullName = String(fd.get("fullName") ?? "");
+    const email = String(fd.get("email") ?? "");
+    const institution = String(fd.get("institution") ?? "");
+    const phone = String(fd.get("phone") ?? "");
+    const message = String(fd.get("message") ?? "");
+
+    const body = [
+      "New contact enquiry from website:",
+      `Name: ${fullName}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "-"}`,
+      `Institution: ${institution || "-"}`,
+      `Message: ${message || "-"}`,
+    ].join("\n");
+
+    const subject = `Enquiry ${institution ? `- ${institution}` : ""}`.trim();
+    const mailto = `mailto:elizabethnalweyiso2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailto, "_blank");
+    setReference(`LOCAL-${Date.now().toString(36).toUpperCase()}`);
+    form.reset();
   };
 
   return (
@@ -85,7 +75,7 @@ function Contact() {
         <section className="container-page grid grid-cols-1 gap-10 py-20 lg:grid-cols-3">
           <div className="flex flex-col gap-4 lg:col-span-1">
             {[
-              { icon: "mail", label: "Email", value: "info@livanlabsupplies.co.ug" },
+              { icon: "mail", label: "Email", value: "elizabethnalweyiso2@gmail.com" },
               { icon: "call", label: "Phone", value: "+256 772 248260" },
               {
                 icon: "chat",
@@ -93,7 +83,7 @@ function Contact() {
                 value: "+256 772 248260",
                 href: "https://wa.me/256772248260",
               },
-              { icon: "location_on", label: "Office", value: "Kampala, Uganda" },
+              { icon: "location_on", label: "Office", value: "B8, Ivory Plaza, Wilson Rd, Kampala" },
               { icon: "schedule", label: "Hours", value: "Mon – Fri, 8:00 – 17:00 EAT" },
             ].map((c, i) => (
               <Reveal key={c.label} delay={i * 0.06}>
@@ -158,11 +148,9 @@ function Contact() {
               />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <button type="submit" className="btn-primary" disabled={sending}>
-                {sending ? "Sending..." : "Send Message"}
-                <span className="material-symbols-outlined text-base">
-                  {sending ? "progress_activity" : "send"}
-                </span>
+              <button type="submit" className="btn-primary">
+                Send Message
+                <span className="material-symbols-outlined text-base">send</span>
               </button>
               <Link to="/quote" className="btn-outline">
                 Request a Quote instead
@@ -175,9 +163,9 @@ function Contact() {
           <div className="card-surface overflow-hidden">
             <iframe
               title="Livan Lab Supplies Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.755043393518!2d32.5825!3d0.3476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0e0e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1690000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.755043393518!2d32.5816!3d0.3146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0e0e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sIvory%20Plaza%2C%20Wilson%20Rd%2C%20Kampala!5e0!3m2!1sen!2sug!4v1690000000000"
               width="100%"
-              height="300"
+              height="400"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
