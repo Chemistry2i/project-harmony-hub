@@ -103,7 +103,3 @@ export function IndustriesMarquee() {
     </div>
   );
 }
-
-    </div>
-  );
-}
