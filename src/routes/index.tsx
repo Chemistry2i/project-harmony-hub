@@ -16,7 +16,6 @@ const HERO_IMAGE =
 const HERO_BACKDROP =
   "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80";
 
-
 const productCategories = [
   {
     name: "Laboratory Equipment",
@@ -516,12 +515,12 @@ function Index() {
                 Your trusted laboratory equipment supplier in Kampala and across East Africa
               </h2>
               <p className="text-muted-foreground">
-                Livan Lab Supplies Uganda Limited supplies clinical laboratory equipment,
-                diagnostic analyzers, microscopes, centrifuges, reagents and consumables to
-                hospitals, medical laboratories, universities, schools and industrial testing
-                facilities. Every quotation includes manufacturer warranties, installation,
-                operator training and preventive maintenance options so your laboratory stays
-                accurate, compliant and productive.
+                Livan Lab Supplies Uganda Limited supplies clinical laboratory equipment, diagnostic
+                analyzers, microscopes, centrifuges, reagents and consumables to hospitals, medical
+                laboratories, universities, schools and industrial testing facilities. Every
+                quotation includes manufacturer warranties, installation, operator training and
+                preventive maintenance options so your laboratory stays accurate, compliant and
+                productive.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -563,7 +562,6 @@ function Index() {
         <WaveDivider flip />
 
         <section className="bg-surface py-20">
-
           <Reveal className="container-page">
             <div className="flex flex-col items-center gap-6 rounded-2xl bg-primary p-12 text-center">
               <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">
