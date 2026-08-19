@@ -370,7 +370,9 @@ function About() {
               { value: "10 yrs", label: "Serving East African labs" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl font-bold text-primary-foreground md:text-4xl">{stat.value}</p>
+                <p className="text-3xl font-bold text-primary-foreground md:text-4xl">
+                  {stat.value}
+                </p>
                 <p className="mt-2 text-xs uppercase tracking-widest text-primary-foreground/70">
                   {stat.label}
                 </p>
@@ -428,9 +430,7 @@ function About() {
         <section className="border-y border-border bg-surface-low py-20">
           <div className="container-page grid grid-cols-1 gap-10 lg:grid-cols-2">
             <Reveal>
-              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
-                Who We Serve
-              </h2>
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Who We Serve</h2>
               <div className="mb-6 h-1 w-16 bg-secondary" />
               <p className="mb-6 text-muted-foreground">
                 Livan Lab Supplies Uganda Limited supports public and private institutions across
@@ -449,7 +449,9 @@ function About() {
                   "NGOs & public health programmes",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="material-symbols-outlined text-base text-secondary">check_circle</span>
+                    <span className="material-symbols-outlined text-base text-secondary">
+                      check_circle
+                    </span>
                     {item}
                   </li>
                 ))}

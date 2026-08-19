@@ -37,19 +37,17 @@ export const Route = createFileRoute("/sitemap.xml")({
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls
-  .map(
-    (u) => {
-      const imageTag = u.image
-        ? `  <image:image><image:loc>${u.image.startsWith("http") ? u.image : origin + u.image}</image:loc></image:image>`
-        : "";
-      return `  <url>
+  .map((u) => {
+    const imageTag = u.image
+      ? `  <image:image><image:loc>${u.image.startsWith("http") ? u.image : origin + u.image}</image:loc></image:image>`
+      : "";
+    return `  <url>
     <loc>${u.loc}</loc>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
     ${imageTag}
   </url>`;
-    },
-  )
+  })
   .join("\n")}
 </urlset>`;
         return new Response(body, {

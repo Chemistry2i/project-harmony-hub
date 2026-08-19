@@ -162,10 +162,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             contactType: "sales",
             email: "wambogohassan63@gmail.com",
           },
-          sameAs: [
-            "https://maps.app.goo.gl/mWwT86ZFe6Ko511u8",
-            "https://wa.me/256772248260",
-          ],
+          sameAs: ["https://maps.app.goo.gl/mWwT86ZFe6Ko511u8", "https://wa.me/256772248260"],
           developer: {
             "@type": "Person",
             name: "Wambogo Hassan Sadat",

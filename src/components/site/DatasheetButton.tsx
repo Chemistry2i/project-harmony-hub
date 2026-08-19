@@ -33,7 +33,11 @@ export function DatasheetButton({
       doc.text("LIVAN LAB SUPPLIES UGANDA LIMITED", margin, 46);
       doc.setFont("helvetica", "normal");
       doc.setFontSize(10);
-      doc.text("Product Datasheet · B8 Ivory Plaza, Wilson Rd, Kampala · +256 772 248260", margin, 66);
+      doc.text(
+        "Product Datasheet · B8 Ivory Plaza, Wilson Rd, Kampala · +256 772 248260",
+        margin,
+        66,
+      );
 
       y = 140;
       doc.setTextColor(15, 37, 69);
