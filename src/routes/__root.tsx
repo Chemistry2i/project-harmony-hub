@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { RouteProgress } from "@/components/site/RouteProgress";
 import { Toaster } from "@/components/ui/sonner";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { WelcomeSplash } from "@/components/site/WelcomeSplash";
 
 function NotFoundComponent() {
   return (
@@ -92,6 +93,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_UG" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "application-name", content: "Livan Lab Supplies Uganda Limited" },
+      { name: "apple-mobile-web-app-title", content: "Livan Lab Supplies Uganda Limited" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -112,8 +115,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "WebSite",
+          "@id": "https://www.livanlabs.com/#website",
           url: "https://www.livanlabs.com",
+          name: "Livan Lab Supplies Uganda Limited",
+          alternateName: ["Livan Labs", "Livan Lab Supplies", "Livan Lab Supplies Uganda"],
+          inLanguage: "en-UG",
+          publisher: { "@id": "https://www.livanlabs.com/#organization" },
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: "https://www.livanlabs.com/products?q={search_term_string}",
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.livanlabs.com/#organization",
+          url: "https://www.livanlabs.com",
+          legalName: "Livan Lab Supplies Uganda Limited",
+          alternateName: "Livan Labs",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://www.livanlabs.com/livan-logo.png",
+          },
+          image: "https://www.livanlabs.com/livan-logo.png",
           name: "Livan Lab Supplies Uganda Limited",
           description:
             "Supplier of laboratory equipment, diagnostic analyzers and scientific apparatus in Uganda.",
@@ -167,6 +199,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <WelcomeSplash />
       <RouteProgress />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
