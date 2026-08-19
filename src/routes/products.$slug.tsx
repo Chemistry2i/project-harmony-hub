@@ -1,3 +1,4 @@
+import { DatasheetButton } from "@/components/site/DatasheetButton";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/products/$slug")({
       return { meta: [{ title: "Product unavailable" }, { name: "robots", content: "noindex" }] };
     }
     const { product } = loaderData;
-    const title = `${product.name} | Livan Lab Supplies Uganda`;
+    const title = `${product.name} | Livan Lab Supplies Uganda Limited`;
     return {
       meta: [
         { title },
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/products/$slug")({
         { property: "og:image", content: product.image },
         { name: "twitter:image", content: product.image },
         { property: "og:type", content: "product" },
-        { property: "og:url", content: `/products/${product.slug}` },
+        { property: "og:url", content: `https://www.livanlabs.com/products/${product.slug}` },
       ],
       links: [{ rel: "canonical", href: `https://www.livanlabs.com/products/${product.slug}` }],
       scripts: [
@@ -154,6 +155,7 @@ function ProductDetail() {
                   <span className="material-symbols-outlined filled text-base">request_quote</span>
                   Request a Quote
                 </Link>
+                <DatasheetButton product={product} />
                 <Link to="/contact" className="btn-outline">
                   <span className="material-symbols-outlined text-base">help</span>
                   Ask a Question

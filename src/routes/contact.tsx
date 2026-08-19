@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
     ],
-      links: [{ rel: "canonical", href: "https://www.livanlabs.com/contact" }],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/contact" }],
   }),
   component: Contact,
 });
@@ -75,7 +75,12 @@ function Contact() {
         <section className="container-page grid grid-cols-1 gap-10 py-20 lg:grid-cols-3">
           <div className="flex flex-col gap-4 lg:col-span-1">
             {[
-              { icon: "mail", label: "Email", value: "elizabethnalweyiso2@gmail.com", href: "mailto:elizabethnalweyiso2@gmail.com" },
+              {
+                icon: "mail",
+                label: "Email",
+                value: "elizabethnalweyiso2@gmail.com",
+                href: "mailto:elizabethnalweyiso2@gmail.com",
+              },
               { icon: "call", label: "Phone", value: "+256 772 248260" },
               {
                 icon: "chat",
@@ -83,7 +88,11 @@ function Contact() {
                 value: "+256 772 248260",
                 href: "https://wa.me/256772248260",
               },
-              { icon: "location_on", label: "Office", value: "B8, Ivory Plaza, Wilson Rd, Kampala" },
+              {
+                icon: "location_on",
+                label: "Office",
+                value: "B8, Ivory Plaza, Wilson Rd, Kampala",
+              },
               { icon: "schedule", label: "Hours", value: "Mon – Fri, 8:00 – 17:00 EAT" },
             ].map((c, i) => (
               <Reveal key={c.label} delay={i * 0.06}>

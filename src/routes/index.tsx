@@ -167,7 +167,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Livan Lab Supplies Uganda | Laboratory & Diagnostic Equipment",
+        title: "Livan Lab Supplies Uganda Limited | Laboratory & Diagnostic Equipment",
       },
       {
         name: "description",
@@ -183,14 +183,17 @@ export const Route = createFileRoute("/")({
       { name: "robots", content: "index, follow" },
       { name: "geo.region", content: "UG" },
       { name: "geo.placename", content: "Kampala" },
-      { property: "og:title", content: "Livan Lab Supplies Uganda | Laboratory & Diagnostic Equipment" },
+      {
+        property: "og:title",
+        content: "Livan Lab Supplies Uganda Limited | Laboratory & Diagnostic Equipment",
+      },
       {
         property: "og:description",
         content:
           "Precision laboratory equipment, diagnostic instruments and scientific solutions across Uganda and East Africa.",
       },
       { property: "og:image", content: HERO_IMAGE },
-      { property: "og:url", content: "https://livanlabsupplies.co.ug/" },
+      { property: "og:url", content: "https://www.livanlabs.com/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_UG" },
       { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },

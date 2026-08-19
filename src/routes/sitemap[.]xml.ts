@@ -4,9 +4,8 @@ import { products } from "@/data/products";
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: ({ request }) => {
+      GET: () => {
         const origin = "https://www.livanlabs.com";
-        const now = new Date().toISOString().split("T")[0];
         const staticPaths = [
           { path: "/", priority: "1.0", changefreq: "weekly" },
           { path: "/about", priority: "0.9", changefreq: "monthly" },
@@ -16,18 +15,21 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/contact", priority: "0.7", changefreq: "monthly" },
           { path: "/quote", priority: "0.7", changefreq: "monthly" },
         ];
-        const urls = [
+        const urls: {
+          loc: string;
+          priority: string;
+          changefreq: string;
+          image?: string;
+        }[] = [
           ...staticPaths.map((p) => ({
             loc: `${origin}${p.path}`,
             priority: p.priority,
             changefreq: p.changefreq,
-            lastmod: now,
           })),
           ...products.map((p) => ({
             loc: `${origin}/products/${p.slug}`,
             priority: "0.8",
             changefreq: "weekly",
-            lastmod: now,
             image: p.image,
           })),
         ];
@@ -35,20 +37,17 @@ export const Route = createFileRoute("/sitemap.xml")({
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls
-  .map(
-    (u) => {
-      const imageTag = u.image
-        ? `  <image:image><image:loc>${origin}${u.image}</image:loc></image:image>`
-        : "";
-      return `  <url>
+  .map((u) => {
+    const imageTag = u.image
+      ? `  <image:image><image:loc>${u.image.startsWith("http") ? u.image : origin + u.image}</image:loc></image:image>`
+      : "";
+    return `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${u.lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
     ${imageTag}
   </url>`;
-    },
-  )
+  })
   .join("\n")}
 </urlset>`;
         return new Response(body, {

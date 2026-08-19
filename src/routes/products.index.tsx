@@ -8,7 +8,7 @@ import { categories, productGroups, products } from "@/data/products";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Product Catalog | Livan Lab Supplies Uganda" },
+      { title: "Product Catalog | Livan Lab Supplies Uganda Limited" },
       {
         name: "description",
         content:
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/products/")({
       },
       { name: "author", content: "Wambogo Hassan Sadat" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Product Catalog | Livan Lab Supplies Uganda" },
+      { property: "og:title", content: "Product Catalog | Livan Lab Supplies Uganda Limited" },
       {
         property: "og:description",
         content:
@@ -122,7 +122,9 @@ function Catalog() {
                         }`}
                       >
                         {c === category && (
-                          <span className="material-symbols-outlined mr-2 text-base text-secondary">check</span>
+                          <span className="material-symbols-outlined mr-2 text-base text-secondary">
+                            check
+                          </span>
                         )}
                         {c}
                       </button>

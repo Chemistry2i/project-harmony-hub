@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
@@ -101,14 +101,39 @@ export const Route = createFileRoute("/about")({
           "Empowering scientific excellence in Uganda through reliable laboratory, diagnostic and scientific solutions.",
       },
       { property: "og:image", content: ABOUT_HERO },
-      { property: "og:url", content: "https://livanlabsupplies.co.ug/about" },
+      { property: "og:url", content: "https://www.livanlabs.com/about" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_UG" },
       { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: ABOUT_HERO },
     ],
-      links: [{ rel: "canonical", href: "https://www.livanlabs.com/about" }],
+    links: [{ rel: "canonical", href: "https://www.livanlabs.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          url: "https://www.livanlabs.com/about",
+          name: "About Livan Lab Supplies Uganda Limited",
+          mainEntity: {
+            "@type": "Organization",
+            "@id": "https://www.livanlabs.com/#organization",
+            name: "Livan Lab Supplies Uganda Limited",
+            alternateName: "Livan Labs",
+            foundingDate: "2016",
+            areaServed: ["Uganda", "East Africa"],
+            knowsAbout: [
+              "Laboratory equipment supply",
+              "Diagnostic analyzers",
+              "Laboratory reagents and consumables",
+              "Equipment installation and calibration",
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: About,
 });
@@ -334,6 +359,160 @@ function About() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="border-t border-border bg-primary py-16">
+          <div className="container-page grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            {[
+              { value: "500+", label: "Institutions supplied" },
+              { value: "1,200+", label: "Product lines catalogued" },
+              { value: "48 hrs", label: "Average quotation turnaround" },
+              { value: "10 yrs", label: "Serving East African labs" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl font-bold text-primary-foreground md:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-widest text-primary-foreground/70">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="container-page py-20">
+          <Reveal>
+            <div className="mb-12 flex flex-col items-center text-center">
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                How We Work With Institutions
+              </h2>
+              <p className="max-w-3xl text-muted-foreground">
+                A structured procurement process that protects budgets, shortens lead times and
+                keeps laboratories compliant from specification through to annual servicing.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                step: "01",
+                title: "Needs Assessment",
+                body: "We review test menus, daily throughput, staffing and existing infrastructure to define realistic equipment and reagent requirements.",
+              },
+              {
+                step: "02",
+                title: "Specification & Quotation",
+                body: "Detailed technical specifications, datasheets and transparent pricing are issued, typically within 48 hours of your request.",
+              },
+              {
+                step: "03",
+                title: "Delivery & Commissioning",
+                body: "Certified units are delivered, installed, calibrated and validated on site, with operator training for laboratory staff.",
+              },
+              {
+                step: "04",
+                title: "Lifecycle Support",
+                body: "Preventive maintenance schedules, spare parts, reagent replenishment and annual recalibration keep the laboratory running.",
+              },
+            ].map((s) => (
+              <Reveal key={s.step} className="h-full">
+                <div className="flex h-full flex-col rounded-xl border border-border bg-surface p-6 transition-all duration-300 hover:shadow-lg">
+                  <span className="mb-3 text-2xl font-bold text-secondary">{s.step}</span>
+                  <h3 className="mb-2 text-base font-semibold text-primary">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground">{s.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-surface-low py-20">
+          <div className="container-page grid grid-cols-1 gap-10 lg:grid-cols-2">
+            <Reveal>
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">Who We Serve</h2>
+              <div className="mb-6 h-1 w-16 bg-secondary" />
+              <p className="mb-6 text-muted-foreground">
+                Livan Lab Supplies Uganda Limited supports public and private institutions across
+                the region, from national referral hospitals to district health facilities,
+                universities, agricultural research stations and industrial quality-control units.
+              </p>
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  "Hospitals & health centres",
+                  "Medical & diagnostic laboratories",
+                  "Research institutions",
+                  "Universities & colleges",
+                  "Secondary school science labs",
+                  "Agricultural & environmental labs",
+                  "Food, water & industrial QC labs",
+                  "NGOs & public health programmes",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="material-symbols-outlined text-base text-secondary">
+                      check_circle
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="mb-3 text-3xl font-bold text-primary md:text-4xl">
+                Why Institutions Choose Livan
+              </h2>
+              <div className="mb-6 h-1 w-16 bg-secondary" />
+              <div className="flex flex-col gap-4">
+                {[
+                  {
+                    title: "Genuine, warranted products",
+                    body: "Every instrument is sourced through authorised channels with manufacturer warranty and calibration documentation.",
+                  },
+                  {
+                    title: "In-country technical support",
+                    body: "Locally based engineers handle installation, fault response and preventive maintenance without long overseas waits.",
+                  },
+                  {
+                    title: "Procurement-ready documentation",
+                    body: "Datasheets, compliance certificates and itemised quotations formatted for tender and institutional approval processes.",
+                  },
+                  {
+                    title: "Predictable reagent supply",
+                    body: "Scheduled consumable replenishment keeps critical assays running and reduces emergency purchasing.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-xl border border-border bg-surface p-5">
+                    <h3 className="mb-1 text-sm font-bold text-primary">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="container-page py-20">
+          <Reveal>
+            <div className="rounded-2xl border border-border bg-primary p-10 text-center">
+              <h2 className="mb-3 text-2xl font-bold text-primary-foreground md:text-3xl">
+                Planning a laboratory purchase or upgrade?
+              </h2>
+              <p className="mx-auto mb-8 max-w-2xl text-primary-foreground/75">
+                Share your requirements and our specialists will return a detailed, itemised
+                quotation with datasheets and lead times.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/quote" className="btn-primary">
+                  <span className="material-symbols-outlined filled text-base">request_quote</span>
+                  Request a Quote
+                </Link>
+                <Link to="/products" className="btn-outline bg-surface">
+                  <span className="material-symbols-outlined text-base">inventory_2</span>
+                  Browse Catalogue
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </section>
       </main>
       <SiteFooter />

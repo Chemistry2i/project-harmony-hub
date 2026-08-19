@@ -173,7 +173,7 @@ const faqJsonLd = {
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries We Serve | Livan Lab Supplies Uganda" },
+      { title: "Industries We Serve | Livan Lab Supplies Uganda Limited" },
       {
         name: "description",
         content:
@@ -186,7 +186,7 @@ export const Route = createFileRoute("/industries")({
       },
       { name: "author", content: "Wambogo Hassan Sadat" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Industries We Serve | Livan Lab Supplies Uganda" },
+      { property: "og:title", content: "Industries We Serve | Livan Lab Supplies Uganda Limited" },
       {
         property: "og:description",
         content:

@@ -6,13 +6,16 @@ export const Route = createFileRoute("/quote/submitted")({
   }),
   head: () => ({
     meta: [
-      { title: "Quote Request Submitted | Livan Lab Supplies Uganda" },
+      { title: "Quote Request Submitted | Livan Lab Supplies Uganda Limited" },
       {
         name: "description",
         content:
           "Your quotation request has been received. A Livan Lab Supplies specialist will respond within 24 hours.",
       },
-      { property: "og:title", content: "Quote Request Submitted | Livan Lab Supplies Uganda" },
+      {
+        property: "og:title",
+        content: "Quote Request Submitted | Livan Lab Supplies Uganda Limited",
+      },
       {
         property: "og:description",
         content: "We have received your request for quotation and will respond within 24 hours.",
