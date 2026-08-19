@@ -16,7 +16,7 @@ export const Route = createFileRoute("/products/$slug")({
       return { meta: [{ title: "Product unavailable" }, { name: "robots", content: "noindex" }] };
     }
     const { product } = loaderData;
-    const title = `${product.name} | Livan Lab Supplies Uganda`;
+    const title = `${product.name} | Livan Lab Supplies Uganda Limited`;
     return {
       meta: [
         { title },

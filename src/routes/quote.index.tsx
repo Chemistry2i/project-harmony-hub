@@ -15,7 +15,7 @@ export const Route = createFileRoute("/quote/")({
   }),
   head: () => ({
     meta: [
-      { title: "Request a Quote | Livan Lab Supplies Uganda" },
+      { title: "Request a Quote | Livan Lab Supplies Uganda Limited" },
       {
         name: "description",
         content:
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/quote/")({
       },
       { name: "author", content: "Wambogo Hassan Sadat" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Request a Quote | Livan Lab Supplies Uganda" },
+      { property: "og:title", content: "Request a Quote | Livan Lab Supplies Uganda Limited" },
       {
         property: "og:description",
         content: "Tell us your requirements and receive a tailored quotation within 24 hours.",
@@ -68,9 +68,10 @@ function QuotePage() {
     const timeline = String(fd.get("timeline") ?? "");
     const reagentKit = String(fd.get("reagentKit") ?? "Included");
 
-    const items = !removed && item
-      ? `${item.name} (${item.sku}) x${Math.max(1, quantity)} | reagent kit: ${reagentKit}`
-      : "None";
+    const items =
+      !removed && item
+        ? `${item.name} (${item.sku}) x${Math.max(1, quantity)} | reagent kit: ${reagentKit}`
+        : "None";
 
     const body = [
       "New quotation request from website:",

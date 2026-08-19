@@ -121,7 +121,7 @@ const serviceFaqs = [
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Laboratory Services | Livan Lab Supplies Uganda" },
+      { title: "Laboratory Services | Livan Lab Supplies Uganda Limited" },
       {
         name: "description",
         content:
@@ -134,7 +134,7 @@ export const Route = createFileRoute("/services")({
       },
       { name: "author", content: "Wambogo Hassan Sadat" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Laboratory Services | Livan Lab Supplies Uganda" },
+      { property: "og:title", content: "Laboratory Services | Livan Lab Supplies Uganda Limited" },
       {
         property: "og:description",
         content:

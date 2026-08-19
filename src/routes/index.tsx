@@ -183,7 +183,10 @@ export const Route = createFileRoute("/")({
       { name: "robots", content: "index, follow" },
       { name: "geo.region", content: "UG" },
       { name: "geo.placename", content: "Kampala" },
-      { property: "og:title", content: "Livan Lab Supplies Uganda Limited | Laboratory & Diagnostic Equipment" },
+      {
+        property: "og:title",
+        content: "Livan Lab Supplies Uganda Limited | Laboratory & Diagnostic Equipment",
+      },
       {
         property: "og:description",
         content:

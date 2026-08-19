@@ -291,8 +291,7 @@ export const products: Product[] = [
     short: "Variable volume micropipettes.",
     description:
       "Variable-volume micropipette kit covering routine pipetting ranges, with lightweight ergonomics and autoclavable lower assemblies for contamination control.",
-    image:
-      "https://assets.fishersci.com/TFS-Assets/CCG/Gilson/product-images/pipetman.JPG-650.jpg",
+    image: "https://assets.fishersci.com/TFS-Assets/CCG/Gilson/product-images/pipetman.JPG-650.jpg",
     specs: [
       { label: "Ranges", value: "0.5-10, 10-100, 100-1000 µL" },
       { label: "Accuracy", value: "Within ISO 8655 limits" },
@@ -322,8 +321,7 @@ export const products: Product[] = [
     short: "Four-module cartridge-based PCR platform for TB, HIV and HPV testing.",
     description:
       "Cartridge-based real-time PCR system delivering laboratory-quality molecular results in under two hours with minimal hands-on time. Widely deployed across Uganda for TB and HIV viral-load testing programmes.",
-    image:
-      "https://d17eythm3w95tp.cloudfront.net/media/76109/conversions/genexpert-large.png",
+    image: "https://d17eythm3w95tp.cloudfront.net/media/76109/conversions/genexpert-large.png",
     specs: [
       { label: "Modules", value: "4 independent modules" },
       { label: "Time to Result", value: "Under 2 hours" },
@@ -384,8 +382,7 @@ export const products: Product[] = [
     short: "Fully automated urine chemistry strip analyzer for high-throughput clinics.",
     description:
       "Automated urine chemistry analyzer processing up to 276 samples per hour with double-wavelength reflectance measurement and automatic strip feeding for busy outpatient laboratories.",
-    image:
-      "https://cdn.hospitalstore.com/images/detailed/116/1500495068.webp?t=1769754627",
+    image: "https://cdn.hospitalstore.com/images/detailed/116/1500495068.webp?t=1769754627",
     specs: [
       { label: "Throughput", value: "Up to 276 samples/hour" },
       { label: "Parameters", value: "11 chemistry parameters + colour/turbidity" },
@@ -445,8 +442,7 @@ export const products: Product[] = [
     short: "Class II Type A2 cabinet protecting operator, sample and environment.",
     description:
       "Class II Type A2 biological safety cabinet with 70% air recirculation and 30% exhaust, HEPA-filtered downflow, and airflow monitoring - essential for handling infectious clinical samples.",
-    image:
-      "https://www.csilabshop.com/wp-content/uploads/2018/04/20170823050143_3634-247x296.jpg",
+    image: "https://www.csilabshop.com/wp-content/uploads/2018/04/20170823050143_3634-247x296.jpg",
     specs: [
       { label: "Class", value: "II Type A2" },
       { label: "Work Area Width", value: "1,200 mm" },
@@ -506,8 +502,7 @@ export const products: Product[] = [
     short: "Lightweight teaching and clinical microscope with bright LED optics.",
     description:
       "Lightweight binocular microscope with high-contrast LED illumination and Olympus achromat objectives, designed for clinical malaria diagnosis and high-volume teaching use.",
-    image:
-      "https://emedicalsupplies.ug/wp-content/uploads/2023/03/olympus-microscope.jpg",
+    image: "https://emedicalsupplies.ug/wp-content/uploads/2023/03/olympus-microscope.jpg",
     specs: [
       { label: "Objectives", value: "4x, 10x, 40x, 100x oil" },
       { label: "Illumination", value: "LED with brightness memory" },
@@ -536,8 +531,7 @@ export const products: Product[] = [
     short: "EDTA, serum and citrate vacuum tubes for reliable phlebotomy.",
     description:
       "Sterile evacuated blood collection tubes with colour-coded caps and consistent draw volumes across EDTA, serum, citrate and fluoride formats for accurate pre-analytical handling.",
-    image:
-      "https://emedicalsupplies.ug/wp-content/uploads/2023/03/purple-tops-600x600.png",
+    image: "https://emedicalsupplies.ug/wp-content/uploads/2023/03/purple-tops-600x600.png",
     specs: [
       { label: "Formats", value: "K2EDTA, Serum (clot activator), Citrate, Fluoride" },
       { label: "Draw Volumes", value: "2 mL, 4 mL, 6 mL" },
@@ -599,8 +593,7 @@ export const products: Product[] = [
       "Food handling",
       "Industrial environments",
     ],
-    short:
-      "Powder-free, latex-free disposable nitrile gloves for reliable hand protection.",
+    short: "Powder-free, latex-free disposable nitrile gloves for reliable hand protection.",
     description:
       "Powder-free, latex-free disposable nitrile examination gloves designed for reliable hand protection, comfort, and tactile sensitivity in laboratory, medical, and general professional environments. Textured fingertips provide excellent grip, and the ambidextrous design ensures consistent performance.",
     image: "/Nitrile Examination Gloves – Powder-Free.jpeg",
@@ -630,12 +623,7 @@ export const products: Product[] = [
     availability: "In Stock",
     leadTime: "2 - 4 working days",
     warranty: "Replacement on manufacturing defect",
-    applications: [
-      "Sample preparation",
-      "Mixing",
-      "Heating",
-      "General laboratory work",
-    ],
+    applications: ["Sample preparation", "Mixing", "Heating", "General laboratory work"],
     short: "Heat-resistant graduated glass beakers with pouring spouts.",
     description:
       "Heat-resistant laboratory glass beakers with graduated markings and pouring spouts, designed for measuring, mixing, heating, and transferring liquids in laboratory applications.",
@@ -716,8 +704,8 @@ export const products: Product[] = [
       { label: "Product", value: "Safety-Lok Blood Collection Set" },
       { label: "Reference", value: "367283" },
       { label: "Pack Size", value: "50 sets per box" },
-      { label: "Needle Size", value: "23G × 3/4\" (0.6 × 19 mm)" },
-      { label: "Tubing Length", value: "305 mm (12\")" },
+      { label: "Needle Size", value: '23G × 3/4" (0.6 × 19 mm)' },
+      { label: "Tubing Length", value: '305 mm (12")' },
     ],
     features: [
       "Integrated safety mechanism for user protection.",
