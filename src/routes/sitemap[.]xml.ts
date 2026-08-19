@@ -4,9 +4,8 @@ import { products } from "@/data/products";
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: ({ request }) => {
+      GET: () => {
         const origin = "https://www.livanlabs.com";
-        const now = new Date().toISOString().split("T")[0];
         const staticPaths = [
           { path: "/", priority: "1.0", changefreq: "weekly" },
           { path: "/about", priority: "0.9", changefreq: "monthly" },
@@ -16,18 +15,21 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/contact", priority: "0.7", changefreq: "monthly" },
           { path: "/quote", priority: "0.7", changefreq: "monthly" },
         ];
-        const urls = [
+        const urls: {
+          loc: string;
+          priority: string;
+          changefreq: string;
+          image?: string;
+        }[] = [
           ...staticPaths.map((p) => ({
             loc: `${origin}${p.path}`,
             priority: p.priority,
             changefreq: p.changefreq,
-            lastmod: now,
           })),
           ...products.map((p) => ({
             loc: `${origin}/products/${p.slug}`,
             priority: "0.8",
             changefreq: "weekly",
-            lastmod: now,
             image: p.image,
           })),
         ];
@@ -42,7 +44,6 @@ ${urls
         : "";
       return `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${u.lastmod}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
     ${imageTag}
