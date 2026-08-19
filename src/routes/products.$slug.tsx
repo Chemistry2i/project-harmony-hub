@@ -1,3 +1,4 @@
+import { DatasheetButton } from "@/components/site/DatasheetButton";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -154,6 +155,7 @@ function ProductDetail() {
                   <span className="material-symbols-outlined filled text-base">request_quote</span>
                   Request a Quote
                 </Link>
+                <DatasheetButton product={product} />
                 <Link to="/contact" className="btn-outline">
                   <span className="material-symbols-outlined text-base">help</span>
                   Ask a Question

@@ -101,7 +101,7 @@ export const Route = createFileRoute("/about")({
           "Empowering scientific excellence in Uganda through reliable laboratory, diagnostic and scientific solutions.",
       },
       { property: "og:image", content: ABOUT_HERO },
-      { property: "og:url", content: "https://livanlabsupplies.co.ug/about" },
+      { property: "og:url", content: "https://www.livanlabs.com/about" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_UG" },
       { property: "og:site_name", content: "Livan Lab Supplies Uganda Limited" },
