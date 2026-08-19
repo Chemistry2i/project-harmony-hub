@@ -40,7 +40,7 @@ ${urls
   .map(
     (u) => {
       const imageTag = u.image
-        ? `  <image:image><image:loc>${origin}${u.image}</image:loc></image:image>`
+        ? `  <image:image><image:loc>${u.image.startsWith("http") ? u.image : origin + u.image}</image:loc></image:image>`
         : "";
       return `  <url>
     <loc>${u.loc}</loc>
