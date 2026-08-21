@@ -139,11 +139,12 @@ function QuotePage() {
               ))}
             </div>
             <img
-              src={SIDE_IMAGE}
-              alt="Macro shot of clear laboratory pipettes on a clean white background"
-              className="h-56 w-full rounded-xl object-cover"
+              src={!removed && item ? item.image : DEFAULT_SIDE_IMAGE}
+              alt={!removed && item ? item.name : "Livan laboratory procurement"}
+              className="h-72 w-full rounded-xl object-cover"
               loading="lazy"
             />
+
           </aside>
 
           <section className="lg:col-span-2">
