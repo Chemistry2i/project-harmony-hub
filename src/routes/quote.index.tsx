@@ -4,8 +4,9 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { getProduct, products } from "@/data/products";
 
-const SIDE_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAZHemEP5sypsWxWSeeTb_UsUC9dt-dyFpEICvr9jhcf3VnYe1iRiduxS3Em4KHb1l46c9MAFTiNgCrB2xdTdAhA8KbCvcLKfKt3t1yrFdEXhA-WbOOxSnyWubEsCssA241SRzBW-UJSoB8O4CioEihBh8lDKAnByhySH9xjtT0GBhUHhZouBc56uGUIAnDrhcDM12DEII8dcz0cgA45CZMCGyBWYbtSVxYWyZ__nRwqQpiWFgf2oCj";
+const DEFAULT_SIDE_IMAGE =
+  "https://images.unsplash.com/photo-1581093458891-9f3039cf6f1a?q=80&w=1200&auto=format&fit=crop";
+
 
 type QuoteSearch = { product?: string | undefined };
 
@@ -138,11 +139,12 @@ function QuotePage() {
               ))}
             </div>
             <img
-              src={SIDE_IMAGE}
-              alt="Macro shot of clear laboratory pipettes on a clean white background"
-              className="h-56 w-full rounded-xl object-cover"
+              src={!removed && item ? item.image : DEFAULT_SIDE_IMAGE}
+              alt={!removed && item ? item.name : "Livan laboratory procurement"}
+              className="h-72 w-full rounded-xl object-cover"
               loading="lazy"
             />
+
           </aside>
 
           <section className="lg:col-span-2">
