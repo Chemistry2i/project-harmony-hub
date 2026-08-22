@@ -131,7 +131,7 @@ export function DatasheetButton({
       doc.setFontSize(10);
       doc.setTextColor(70, 80, 95);
       doc.text(
-        "www.livanlabs.com/quote  ·  wambogohassan63@gmail.com  ·  +256 772 248260",
+        "www.livanlabs.com/quote  ·  elizabethnalweyiso2@gmail.com  ·  +256 772 248260",
         margin + 16,
         y + 46,
       );

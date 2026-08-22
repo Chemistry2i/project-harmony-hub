@@ -160,7 +160,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@type": "ContactPoint",
             telephone: "+256-772-248260",
             contactType: "sales",
-            email: "wambogohassan63@gmail.com",
+            email: "elizabethnalweyiso2@gmail.com",
           },
           sameAs: ["https://maps.app.goo.gl/mWwT86ZFe6Ko511u8", "https://wa.me/256772248260"],
           developer: {
